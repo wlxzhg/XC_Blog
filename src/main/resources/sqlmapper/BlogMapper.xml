@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xiaozhigang.blog.mapper.BlogMapper">
+    <resultMap id="blogResultMap" type="cn.xiaozhigang.blog.domain.Blog">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="brief" column="brief"/>
+        <result property="text" column="text"/>
+        <result property="categoryCode" column="category_code"/>
+        <result property="createTime" javaType="java.sql.Timestamp"
+                column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="modifyTime" javaType="java.sql.Timestamp"
+                column="modify_time" jdbcType="TIMESTAMP"/>
+        <result property="likeNum" column="like_num"/>
+        <result property="browseNum" column="browse_num"/>
+        <result property="commentNum" column="comment_num"/>
+        <result property="beginImgHref" column="begin_img_href"/>
+    </resultMap>
+
+    <select id="findBlogByBlogQuery" resultMap="blogResultMap">
+        SELECT
+            id,
+            title,
+            brief,
+            text,
+            category_code,
+            create_time,
+            modify_time,
+            like_num,
+            browse_num,
+            comment_num,
+            begin_img_href
+        FROM
+            b_blog
+        WHERE
+            category_code = #{categoryCode}
+        ORDER BY id ASC LIMIT   #{start},#{end}
+    </select>
+</mapper>

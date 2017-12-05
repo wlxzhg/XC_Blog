@@ -1,0 +1,19 @@
+body {
+    font: normal 14px/24px "STHeiti","Arial","Microsoft Yahei","Hiragino Sans GB","Simsun,sans-self";
+    background-color: #E9EAEC;
+    /*background-color: #E9EAEC;*/
+    background-color: #C7EDCC;
+    /*color: #333;*/
+}
+body, div, a, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+    margin: 0;
+    padding: 0;
+}
+li{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+    color: #333;
+
+}

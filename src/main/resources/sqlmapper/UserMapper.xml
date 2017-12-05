@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xiaozhigang.blog.mapper.UserMapper">
+    <resultMap id="userResultMap" type="cn.xiaozhigang.blog.domain.User">
+        <id property="id" column="id"/>
+        <result property="userName" column="user_name"/>
+        <result property="password" column="password"/>
+        <result property="lastIp" column="last_ip"/>
+        <result property="lastVisitTime" javaType="java.sql.Timestamp"
+                column="last_visit_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <select id="findUserById" resultMap="userResultMap">
+        SELECT
+            id,
+            user_name,
+            `password`,
+            last_ip,
+            last_visit_time
+        FROM
+            b_user
+        WHERE
+            id = #{id}
+    </select>
+</mapper>
