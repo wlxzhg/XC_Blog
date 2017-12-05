@@ -13,58 +13,47 @@
 </head>
 
 <body>
-<header class="header" id="header">
-    <div class="header-topbar" id="header-topbar">
-        <nav class="header-top">
-            <ul class="header-topbar-login">
-                <li><a href="#"><span class="fa fa-user-o"></span> 注册</a></li>
-                <li><a href="#"><span class="fa fa-user"></span> 登录</a></li>
-            </ul>
-            <ul class="header-topbar-about">
-                <li><a href="#"><span class="fa fa-hand-pointer-o"></span> 关于</a></li>
-                <li><a href="#"><span class="fa fa-hand-paper-o"></span> 其他</a></li>
-            </ul>
-        </nav>
-    </div>
-    <div class="header-nav" id="header-nav">
-        <nav class="header-bottom">
-            <div class="logo" id="logo">X.C博客</div>
-            <div class="search"><span class="fa fa-search"></span></div>
-            <div class="main-nav" id="main-nav">
-                <!--     <ul class="list-for-hover" id="list-for-hover">
-                       <li></li>
-                       <li></li>
-                       <li></li>
-                       <li></li>
-                       <li></li>
-                       <li></li>
-                       <li></li>
-                   </ul> -->
-                <ul class="main-nav-list" id="main-nav-list">
-                    <li><a href="">首页</a></li>
-                    <li><a href="">web前端</a></li>
-                    <li><a href="">web后端</a></li>
-                    <li><a href="">音乐</a></li>
-                    <li><a href="">人工智能</a></li>
-                    <li><a href="">黑科技</a></li>
-                    <li><a href="">更多</a></li>
+    <header class="header" id="header">
+        <div class="header-topbar" id="header-topbar">
+            <nav class="header-top">
+                <ul class="header-topbar-login">
+                    <li><a href="#"><span class="fa fa-user-o"></span> 注册</a></li>
+                    <li><a href="#"><span class="fa fa-user"></span> 登录</a></li>
                 </ul>
-                <div class="main-nav-bg" id="main-nav-bg">
-                    <ul class="main-nav-list-white" id="main-nav-list-white">
-                        <li><a href="">首页</a></li>
-                        <li><a href="">web前端</a></li>
-                        <li><a href="">web后端</a></li>
-                        <li><a href="">音乐</a></li>
-                        <li><a href="">人工智能</a></li>
-                        <li><a href="">黑科技</a></li>
-                        <li><a href="">更多</a></li>
+                <ul class="header-topbar-about">
+                    <li><a href="#"><span class="fa fa-hand-pointer-o"></span> 关于</a></li>
+                    <li><a href="#"><span class="fa fa-hand-paper-o"></span> 其他</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-nav" id="header-nav">
+            <nav class="header-bottom">
+                <div class="logo" id="logo">X.C博客</div>
+                <div class="search"><span class="fa fa-search"></span></div>
+                <div class="main-nav" id="main-nav">
+                    <ul class="main-nav-list" id="main-nav-list">
+                        <li><a href=""><span class="fa fa-home"></span> 首页</a></li>
+                        <!-- <li><a href="">web前端</a></li> -->
+                        <li><a href=""><span class="fa fa-file-text"></span> 技术干货</a></li>
+                        <li><a href=""><span class="fa fa-play-circle-o"></span> 音乐</a></li>
+                        <li><a href=""><span class="fa fa-magic"></span> 人工智能</a></li>
+                        <!-- <li><a href="">黑科技</a></li> -->
+                        <li><a href=""><span class="fa fa-angle-double-down"></span> 更多</a></li>
+                    </ul>
+                    <ul class="main-nav-list-iphone" id="main-nav-list-iphone">
+                        <li><a href=""><span class="fa fa-home"></span> 首页</a></li>
+                        <li><a href=""><span class="fa fa-bars"></span> 更多</a></li>
+                        <li><a href=""><span class="fa fa-user"></span> 登录</a></li>
                     </ul>
                 </div>
-
-            </div>
-
-        </nav>
-    </div>
+                <!-- <div class="main-nav-iphone" id="main-nav-iphone">
+                    <ul class="main-nav-list-iphone" id="main-nav-list-iphone">
+                        <li><a href=""><span class="fa fa-bars"></span></a></li>
+                        <li><a href=""><span class="fa fa-user"></span></a></li>
+                    </ul>
+                </div> -->
+            </nav>
+        </div>
     <div>
         <#list blogs as blog>
             <div>

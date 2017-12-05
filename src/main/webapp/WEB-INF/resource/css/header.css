@@ -1,133 +1,163 @@
-.header{
-	width:100%;
-	height:120px;
-	border:1px solid;
+.header {
+    width: 100%;
+    height: 120px;
 }
+
 .header-top,
-.header-bottom{
-	width:1120px;
-	margin:0 auto;
-	/*border:1px solid;*/
+.header-bottom {
+    width: 1100px;
+    margin: 0 auto;
+    /*border:1px solid;*/
 }
-.header-nav{
-	height: 90px;
-	background: #fff;
+
+.header-topbar {
+    height: 30px;
+    background-color: #ddd;
 }
-.header-topbar{
-	height:30px;
-	background-color: #ddd;
+
+.header-topbar a:hover {
+    color: #27d;
 }
-.header-topbar a:hover{
-	/*color:#3095f0;*/
-	color:#090;
-}
+
 .header-topbar-login,
 .header-topbar-login li,
-.header-topbar-about li{
-	float:left;
+.header-topbar-about li {
+    float: left;
 }
-.header-topbar-about{
-	float:right;
+
+.header-topbar-about {
+    float: right;
 }
+
 .header-topbar-login li,
-.header-topbar-about li{
-	width:60px;
-	line-height: 30px;
+.header-topbar-about li {
+    width: 60px;
+    line-height: 30px;
 }
-.header-topbar-about li{
-	text-align: right;
+
+.header-topbar-about li {
+    text-align: right;
 }
+
+
+
 /*一下为主要导航样式*/
-.logo{
-	float:left;
-	color:000;
-	font-size: 46px;
-	font-weight: bold;
-	line-height: 90px;
+
+.header-nav {
+    height: 90px;
+    background: #fff;
 }
 
-/*.main-nav{
-	float:right;
-	border:1px solid;
-	line-height:90px;
+.logo {
+    float: left;
+    font-size: 46px;
+    font-weight: bold;
+    line-height: 90px;
 }
 
-.main-nav li{
-	float: left;
-	width: 92px;
-	font-size:15px;
-	font-weight: bold;
-	text-align: center;
-	
-}
-.main-nav li a{
-	display: block;
-	color: #555;
-}
-.main-nav li a:hover{
-	color:#fff;
-	background-color: #27d;
-}*/
-.main-nav{
-	float:right;
-	position: relative;
-	width: 644px;
-	height: 90px;
-	/*border: 1px solid;*/
-	
-}
-.main-nav-list{
-	/*z-index: 24;*/
-	/*width: 644px;*/
-	float:right;
-	/*height:40px;*/
-	line-height:90px;
-	/*border:1px solid;*/
-	/*z-index: 1;*/
-}
-.main-nav li{
-	float: left;
-	width: 92px;
-	font-size:15px;
-	font-weight: bold;
-	text-align: center;
-	
-}
-.main-nav li a{
-	display: block;
-	color: #555;
+.main-nav {
+    float: right;
+    height: 90px;
 }
 
-.main-nav-bg{
-	height: 36px;
-	width:92px;
-	background: #27d;
-	border-radius: 20px;
-	position: absolute;
-	top:27px;
-	overflow: hidden;
+.main-nav li a {
+    display: block;
+    color: #555;
 }
 
-.main-nav-list-white{
-	width: 644px;
-	position: absolute;
-	top:6px;
+.main-nav li a:hover {
+    color: #fff;
+    background-color: #27d;
 }
-.main-nav-list-white li a{
-	color:#fff;
+
+.main-nav-list {
+    float: right;
+    line-height: 90px;
 }
-.search{
-	float: right;
-	margin-top:32px;
-	margin-left:20px;
+
+.main-nav li {
+    float: left;
+    width: 100px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
 }
-.logo{
-	-webkit-background-clip: text;
-	background-image: -webkit-linear-gradient(left, orange, green,red);
-	color:transparent;
-	transition: all 1.5s linear;
+
+.search {
+    float: right;
+    margin-top: 32px;
+    margin-left: 20px;
 }
-.logo:hover{
-	transform: rotate(360deg);
-	color:orange;
+
+.logo {
+    -webkit-background-clip: text;
+    background-image: -webkit-linear-gradient(left, orange, green, red);
+    color: transparent;
+    transition: all 1.5s linear;
+}
+
+.logo:hover {
+    transform: rotate(360deg);
+    color: orange;
+}
+
+.main-nav-list-iphone {
+    display: none;
+}
+
+
+/*响应式布局*/
+
+@media screen and (max-width: 1100px) {
+    .header-top,
+    .header-bottom {
+        width: 92%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header-topbar,
+    .main-nav-list {
+        display: none;
+    }
+    .header-bottom{
+    	width: 90%;
+    }
+    .header,
+    .header-nav,
+    .heaser-bottom,
+    .main-nav{
+    	height:50px;
+    }
+    .logo{
+    	font-size: 22px;
+    	line-height: 50px;
+    }
+    .main-nav{
+    	/*width:60px;*/
+        /*height: 100%;*/
+    }
+    .main-nav-list-iphone {
+        display: block;
+     	/*height: 50px;*/
+       /* width:10%;
+        height: 100%;*/
+    }
+	.main-nav-list-iphone li{
+		float: left;
+		width: 46px;
+		/*height: 50px;*/
+		line-height: 50px;
+	}
+	.main-nav-list-iphone li a{
+		/*flex:1;*/
+		display: block;
+		/*height: 50px;*/
+		font-size:12px;
+	}
+	.search{
+		margin-top:13px; 
+		margin-left:10px;
+    	font-size:12px;
+	}
 }
