@@ -105,7 +105,9 @@
     display: none;
 }
 
-
+.clear{
+	clear: both;
+}
 /*响应式布局*/
 
 @media screen and (max-width: 1100px) {
@@ -123,9 +125,8 @@
     .header-bottom{
     	width: 90%;
     }
-    .header,
     .header-nav,
-    .heaser-bottom,
+    .header-bottom,
     .main-nav{
     	height:50px;
     }
@@ -133,31 +134,26 @@
     	font-size: 22px;
     	line-height: 50px;
     }
-    .main-nav{
-    	/*width:60px;*/
-        /*height: 100%;*/
-    }
+
     .main-nav-list-iphone {
         display: block;
-     	/*height: 50px;*/
-       /* width:10%;
-        height: 100%;*/
+        line-height: 50px;
     }
 	.main-nav-list-iphone li{
 		float: left;
-		width: 46px;
+		width: 50px;
 		/*height: 50px;*/
-		line-height: 50px;
+		/*line-height: 50px;*/
 	}
 	.main-nav-list-iphone li a{
 		/*flex:1;*/
 		display: block;
 		/*height: 50px;*/
-		font-size:12px;
+		font-size:10px;
 	}
 	.search{
 		margin-top:13px; 
 		margin-left:10px;
-    	font-size:12px;
+    	font-size:10px;
 	}
 }

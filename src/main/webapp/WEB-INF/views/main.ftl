@@ -2,6 +2,9 @@
 <html lang="zh-CN">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>X.C博客|关注科技，分享生活</title>
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/index.css">
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/header.css">
@@ -46,16 +49,14 @@
                         <li><a href=""><span class="fa fa-user"></span> 登录</a></li>
                     </ul>
                 </div>
-                <!-- <div class="main-nav-iphone" id="main-nav-iphone">
-                    <ul class="main-nav-list-iphone" id="main-nav-list-iphone">
-                        <li><a href=""><span class="fa fa-bars"></span></a></li>
-                        <li><a href=""><span class="fa fa-user"></span></a></li>
-                    </ul>
-                </div> -->
-            </nav>
+            </nav> 
+
         </div>
+      <div class="clear"></div>
+
+    </header>
     <div>
-        <#list blogs as blog>
+     <#list blogs as blog>
             <div>
                 <h4>标题：${blog.title}</h4>
                 <p>简介：${blog.brief}</p>
@@ -70,7 +71,9 @@
             <br>
         </#list>
     </div>
-</header>
+       
+ 
+
 <div></div>
 <footer></footer>
 </body>
