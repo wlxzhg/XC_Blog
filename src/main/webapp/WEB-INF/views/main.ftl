@@ -43,19 +43,24 @@
                         <!-- <li><a href="">黑科技</a></li> -->
                         <li><a href=""><span class="fa fa-angle-double-down"></span> 更多</a></li>
                     </ul>
-                    <ul class="main-nav-list-iphone" id="main-nav-list-iphone">
+                </div>
+                <ul class="main-nav-list-iphone" id="main-nav-list-iphone">
+                        <li><a href=""><span class="fa fa-home"></span> 首页</a></li>
+                        <li><a href=""><span class="fa fa-bars"></span> 更多</a></li>
+                        <li><a href=""><span class="fa fa-user"></span> 登录</a></li>
+                </ul>
+            </nav> 
+
+        </div>
+      <!-- <div class="clear"></div> -->
+
+    </header>
+    <div>
+        <ul class="" id="">
                         <li><a href=""><span class="fa fa-home"></span> 首页</a></li>
                         <li><a href=""><span class="fa fa-bars"></span> 更多</a></li>
                         <li><a href=""><span class="fa fa-user"></span> 登录</a></li>
                     </ul>
-                </div>
-            </nav> 
-
-        </div>
-      <div class="clear"></div>
-
-    </header>
-    <div>
      <#list blogs as blog>
             <div>
                 <h4>标题：${blog.title}</h4>
