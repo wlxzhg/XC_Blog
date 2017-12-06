@@ -15,7 +15,7 @@ public class BlogServiceImpl implements BlogService {
     private BlogMapper blogMapper;
 
     public List<Blog> findBlogByBlogQuery(BlogQuery blogQuery) {
-        blogQuery.convertCategory();
+//        blogQuery.convertCategory();
         return blogMapper.findBlogByBlogQuery(blogQuery);
     }
 }
