@@ -60,12 +60,12 @@
     height: 90px;
 }
 
-.main-nav li a {
+.header-bottom li a {
     display: block;
     color: #555;
 }
 
-.main-nav li a:hover {
+.header-bottom li a:hover {
     color: #fff;
     background-color: #27d;
 }
@@ -119,15 +119,14 @@
 
 @media screen and (max-width: 768px) {
     .header-topbar,
-    .main-nav-list {
+    .main-nav {
         display: none;
     }
     .header-bottom{
     	width: 90%;
     }
     .header-nav,
-    .header-bottom,
-    .main-nav{
+    .header-bottom{
     	height:50px;
     }
     .logo{
@@ -137,7 +136,9 @@
 
     .main-nav-list-iphone {
         display: block;
+        float: right;
         line-height: 50px;
+        text-align: center;
     }
 	.main-nav-list-iphone li{
 		float: left;
@@ -147,7 +148,7 @@
 	}
 	.main-nav-list-iphone li a{
 		/*flex:1;*/
-		display: block;
+		/*display: block;*/
 		/*height: 50px;*/
 		font-size:10px;
 	}
