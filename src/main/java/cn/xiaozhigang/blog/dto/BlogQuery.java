@@ -1,5 +1,7 @@
 package cn.xiaozhigang.blog.dto;
 
+import cn.xiaozhigang.blog.constant.BlogCategoryEnum;
+
 public class BlogQuery {
     private String category;
     private Integer pageNum;
@@ -14,18 +16,21 @@ public class BlogQuery {
         this.category = category;
         this.pageNum = pageNum;
         this.numPerPage = numPerPage;
+        this.categoryCode = BlogCategoryEnum.descToCode(category);
+        this.start = (pageNum - 1) * numPerPage;
+        this.end = start + numPerPage;
     }
 
-    public void convertCategory() {
-        start = (pageNum - 1) * numPerPage;
-        end = start + numPerPage;
-        if(category.equals("web_font"))
-            categoryCode = 1;
-        else if(category.equals("web_back_font"))
-            categoryCode = 2;
-        else
-            categoryCode = 0;
-    }
+//    public void convertCategory() {
+//        start = (pageNum - 1) * numPerPage;
+//        end = start + numPerPage;
+//        if(category.equals("web_font"))
+//            categoryCode = 1;
+//        else if(category.equals("web_back_font"))
+//            categoryCode = 2;
+//        else
+//            categoryCode = 0;
+//    }
 
     @Override
     public String toString() {

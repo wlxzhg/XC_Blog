@@ -7,7 +7,7 @@ public class BlogCategory {
 
     @Override
     public String toString() {
-        return "BlogCategory{" +
+        return "BlogCategoryEnum{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
