@@ -1,0 +1,66 @@
+footer{
+	height: 160px;
+	width: 100%;
+	margin-top: 10px;
+}
+.footer-wrap{
+	background-color: #999;
+	height: 100px;
+}
+.footer-top{
+	display: flex;
+	/*align-items: center;
+	justify-content: center;*/
+
+}
+footer h4{
+	margin-bottom: 10px !important;
+	/*color: green;*/
+}
+.support-us{
+	margin-left: 20px;
+	position: relative;
+}
+.this-net h4,.this-net div{
+display: flex;
+justify-content: flex-end;
+
+}
+.QRcode{
+	width: 90px;
+	height: 90px;
+	position: absolute;
+
+}
+.weipay,.baopay{
+	left:80px;
+	top:-15px;
+	display: none;
+}
+.this-net,.support-us{
+	margin-top: 20px;
+	/*width: 400px;*/
+	flex:1;
+	/*margin-left: 20px;*/
+	/*border:1px solid;*/
+
+	color: #eee;
+	/*padding-left: 20px;*/
+}
+.fa-rmb,.fa-wechat{
+
+	font-size: 30px !important;
+}
+.fa-wechat{
+	margin-left: 20px;
+
+}
+.fa-rmb:hover,.fa-wechat:hover{
+	color: green;
+}
+.footer-bottom{
+	line-height:60px; 
+	display: flex;
+	justify-content: center;
+	background-color: #fff;
+}

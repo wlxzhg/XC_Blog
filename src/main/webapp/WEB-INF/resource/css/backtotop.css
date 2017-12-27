@@ -1,0 +1,27 @@
+.back-to-top{
+	position: absolute;
+	height: 44px;
+	width: 44px;
+	border: 1px solid #ccc;
+	right:-46px !important;
+	/*top:1000px;*/
+	bottom: 200px !important;
+	background: #fff;
+	/*display: none;*/
+	cursor: pointer;
+}
+.to-top-arrow{
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	border-left:4px solid #111;
+	border-top:4px solid #111;
+	transform: rotate(45deg);
+	left:10px;
+	top:16px;
+
+
+}
+.back-to-top:hover{
+	background: #27d;
+}

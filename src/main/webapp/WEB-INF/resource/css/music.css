@@ -1,0 +1,84 @@
+.cont-bott-right,
+.cont-bott-left{
+	/*overflow: hidden;*/
+	position: relative;
+	cursor: pointer;
+}
+.introduce{
+	height: 40px;
+	width: 100%;
+	line-height: 40px;
+}
+.hipi-joke-title{
+	position: absolute;
+	z-index: 999;
+	left:10px;
+	top:10px;
+	color: orange;
+	font-size: 16px;
+	font-weight: bold;
+}
+.music{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left:0;
+	top:0;
+	display: none;
+	/*opacity: 0;*/
+}
+.music:nth-of-type(1){
+	display: block;
+	/*opacity: 1;*/
+}
+
+.left-slide,
+.right-slide{
+	position: absolute;
+	font-size: 100px;
+	top:130px;
+	cursor: pointer;
+opacity: 0;
+
+}
+.left-slide{
+	left:10px;
+}
+.right-slide{
+	/*left:420px;*/
+	right: 10px !important;
+}
+
+.left-slide:hover,
+.right-slide:hover{
+	opacity: 1;
+	z-index:999;
+}
+ /*右箭头*/
+   /*     .right{
+            width:20px;
+            height:20px;
+            position:absolute;
+            left:0;
+            top:0;
+            border:1px solid blue;
+        }*/
+        .right-arrow1{
+              width:0;
+            height:0;
+            display:block;
+            position:absolute;
+            left:0;
+            top:0;
+            border-top:10px transparent dashed;
+            border-right:10px transparent dashed;
+            border-bottom:10px transparent dashed;
+            border-left:10px white solid;
+            overflow:hidden;
+        }
+        .right-arrow1{
+            left:1px;
+            border-left:12px blue solid;
+             
+        }
+    

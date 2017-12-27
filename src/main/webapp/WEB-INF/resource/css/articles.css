@@ -1,0 +1,147 @@
+.left-content-list {
+    display: flex;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.article-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.article-left {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.article-right img {
+    width: 100%;
+    height: 80%;
+    line-height: 100%;
+}
+
+.article-title,
+.article-eye {
+    flex: 0 0 40px;
+    display: flex;
+}
+
+.article-title {
+    flex-wrap: wrap;
+    line-height: 40px;
+}
+
+.article-title a:link {
+    color: 333;
+}
+
+.article-title a:hover {
+    color: #27d;
+}
+
+.article-content {
+    flex: 1;
+    margin: 10px 0;
+    font-size: 16px;
+    color: #777;
+    flex-wrap: wrap;
+    max-height: 137px;
+    overflow: hidden;
+    line-height: 30px;
+}
+
+.article-eye {
+    align-items: center;
+}
+
+.article-eye div:nth-of-type(1) {
+    flex: 1;
+}
+
+.article-eye div {
+    flex: 0 0 50px;
+    color: #999;
+}
+
+.article-eye div:hover {
+    color: #27d;
+}
+
+@media screen and (max-width: 600px) {
+
+    .left-content .left-content-list {
+        padding: 5px;
+        margin-top: 5px;
+    }
+    .content-top {
+        flex: 0 0 900px;
+        display: flex;
+    }
+    .article-title {
+        max-height: 40px;
+    }
+    .article-title,
+    .article-content {
+        font-size: 14px;
+        overflow: hidden;
+    }
+    .article-title,
+    .article-eye {
+        flex: 1;
+        /*text-align: center;*/
+    }
+
+    .article-eye div {
+        font-size: 10px;
+        flex: 0 0 35px;
+    }
+    .article-eye div:nth-of-type(1) {
+        flex: 1;
+    }
+    .article-content {
+        flex: 3;
+        max-height: 80px;
+    }
+    .article-right img {
+        height: 66%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 840px) {
+    .content-top {
+        flex: 0 0 900px;
+    }
+    .article-content {
+        max-height: 108px;
+        margin: 5px 0;
+    }
+    .article-right img {
+        height: 70%;
+    }
+    .article-title,
+    .article-content {
+        font-size: 14px;
+        overflow: hidden;
+    }
+
+    .article-eye {
+        font-size: 10px;
+        flex: 0 0 35px !important;
+    }
+    .article-eye div:nth-of-type(1) {
+        flex: 1;
+    }
+    .sidebar-top {
+        flex: 0 0 1020px;
+        margin: 10px 0 0 0;
+    }
+    .left-content .left-content-list {
+        padding: 5px !important;
+        /*margin-top: 5px;*/
+    }
+    .sidebar-bottom {
+        display: none;
+    }
+}

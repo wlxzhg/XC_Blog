@@ -1,0 +1,115 @@
+.content {
+    position: relative;
+    max-width: 1000px;
+    /*padding-left:10px;
+    padding-right:10px;*/
+    /*min-width: 300px;*/
+    /*height:100px;*/
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    /*border: 1px solid;*/
+}
+
+.content-top {
+    /*background-color: #666;*/
+    flex-basis: 1260px;
+    /*flex: 0 0 1200px;*/
+    display: flex;
+}
+
+.left-content {
+    flex: 1;
+    margin-right: 10px;
+
+    display: flex;
+    flex-direction: column;
+    /*transition: all 0.5s;*/
+}
+
+.left-content .left-content-list {
+    flex: 1;
+    background-color: #fff;
+    margin-top: 10px;
+    border: 1px solid #eee;
+}
+
+.sidebar {
+
+    flex-basis: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-top {
+    margin: 10px 0 10px 0;
+    flex: 0 0 850px;
+    border: 1px solid #eee;
+    background-color: #fff;
+}
+
+.sidebar-bottom {
+    background-color: #fff;
+
+    border: 1px solid #eee;
+
+    flex: 1;
+}
+
+.content-bottom {
+    margin-top: 10px;
+    max-height: 300px;
+    flex-basis: 300px;
+    display: flex;
+}
+
+.cont-bott-right,
+.cont-bott-left {
+    flex: 1;
+    border: 1px solid #eee;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.cont-bott-right {
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .content,.footer-top {
+        width: 100%;
+    }
+    #sidebar {
+        display: none;
+    }
+    .left-content {
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .content-bottom {
+        max-height: 400px;
+        flex-basis: 400px !important;
+        flex-direction: column;
+        margin-top:5px;
+    }
+    .cont-bott-right {
+        margin-top: 5px;
+        margin-left: 0;
+    }
+    .left-slide,
+    .right-slide {
+        top: 80px !important;
+    }
+    .right-slide {
+        right: 10px !important;
+    }
+    #wrap{
+    perspective: 2000px !important;/*透视距离500px*/
+    }
+   #wrap .common{
+        height: 134px !important;
+    width: 230px !important;
+    }
+  }

@@ -1,0 +1,22 @@
+ .sidebar-bottom {
+
+     /*margin:50px auto;*/
+     position: relative;
+ }
+
+ .tags {
+     display: block;
+     position: absolute;
+     left: -20px;
+     top: 0;
+     color: #000;
+     text-decoration: none;
+     font-size: 15px;
+     /*font-family: "微软雅黑";*/
+     font-weight: bold;
+ }
+
+ .tags:hover {
+     /*border: 1px solid #666;*/
+     background: #aaa;
+ }
