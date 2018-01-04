@@ -80,4 +80,11 @@ public class VisitController {
         }
         return JSON.toJSONString(map);
     }
+
+    @RequestMapping("article/{id}")
+    public String article(@PathVariable Integer id,Model model) {
+        Blog blog = blogService.findById(id);
+        model.addAttribute("blog",blog);
+        return "article";
+    }
 }

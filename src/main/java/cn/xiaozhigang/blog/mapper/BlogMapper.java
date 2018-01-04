@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface BlogMapper {
     List<Blog> findBlogByBlogQuery(BlogQuery blogQuery);
+
+    Blog findById(Integer id);
 }

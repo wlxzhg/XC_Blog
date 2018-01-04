@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface BlogService {
     List<Blog> findBlogByBlogQuery(BlogQuery blogQuery);
+
+    Blog findById(Integer id);
 }

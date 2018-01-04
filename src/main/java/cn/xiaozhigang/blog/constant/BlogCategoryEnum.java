@@ -2,7 +2,9 @@ package cn.xiaozhigang.blog.constant;
 
 public enum BlogCategoryEnum {
     FONT_END("font_end",1),
-    BACK_END("back_end",2);
+    BACK_END("back_end",2),
+    AI("AI",3),
+    ALL("all",4);
 
     private int code;
     private String desc;

@@ -26,8 +26,9 @@
     <script src="${resourcePath}/js/musicSlide.js" type="text/javascript"></script>
     <script src="${resourcePath}/js/pay.js" type="text/javascript"></script>
     <script src="${resourcePath}/js/headerposition.js" type="text/javascript"></script>
-    <script src="${resourcePath}/js/test.js" type="text/javascript"></script>
+    <!-- <script src="${resourcePath}/js/test.js" type="text/javascript"></script> -->
     <script src="${resourcePath}/js/toTop.js" type="text/javascript"></script>
+    <script src="${resourcePath}/js/jumpArticle.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -97,6 +98,7 @@
                     <div class="left-content-list">
                         <div class="article-left">
                             <h2 class="article-title"><a href="#">${blog.title}</a></h2>
+                            <input type="hidden" value="${blog.id}">
                             <div class="article-content">首先咱先分析一下。打眼一看，loading图分成三部分：1、外侧3/4圆弧2、内侧浅色圆饼3、内侧深色圆饼。外侧圆弧的制作，上篇文章已经说过了，您可以看这。下面我们主要来介绍圆饼及其动画的实现，详细代码您可以点这。</div>
                             <div class="article-eye">
                                 <div class="create-time fa fa-clock-o"> ${blog.createTime}</div>

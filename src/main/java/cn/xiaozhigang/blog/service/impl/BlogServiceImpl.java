@@ -18,4 +18,9 @@ public class BlogServiceImpl implements BlogService {
 //        blogQuery.convertCategory();
         return blogMapper.findBlogByBlogQuery(blogQuery);
     }
+
+    public Blog findById(Integer id) {
+    	if(id == null) return null;
+    	return blogMapper.findById(id);
+    }
 }

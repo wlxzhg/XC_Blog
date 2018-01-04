@@ -38,4 +38,23 @@
             category_code = #{categoryCode}
         ORDER BY id ASC LIMIT   #{start},#{end}
     </select>
+
+    <select id = "findById" resultMap = "blogResultMap">
+        SELECT
+            id,
+            title,
+            brief,
+            text,
+            category_code,
+            create_time,
+            modify_time,
+            like_num,
+            browse_num,
+            comment_num,
+            begin_img_href
+        FROM
+            b_blog
+        WHERE
+           id = #{id}
+    </select>
 </mapper>
