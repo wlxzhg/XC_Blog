@@ -57,4 +57,13 @@
         WHERE
            id = #{id}
     </select>
+
+    <update id = "like">
+        UPDATE b_blog SET like_num = like_num + 1 WHERE id = #{id}
+    </update>
+
+    <update id = "unlike">
+        UPDATE b_blog SET like_num = like_num - 1 WHERE id = #{id} AND like_num > 0
+    </update>
+
 </mapper>

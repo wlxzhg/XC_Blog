@@ -9,6 +9,8 @@
     <title>X.C博客|关注科技，分享生活</title>
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/index.css">
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/header.css">
+    <link rel="stylesheet" type="text/css" href="${resourcePath}/css/logo.css">
+
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/content.css">
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/content-search.css">
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/tags.css">
@@ -19,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/jokes.css">
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/footer.css">
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/backtotop.css">
+    <link rel="stylesheet" type="text/css" href="${resourcePath}/css/automedia.css">
     <link rel="stylesheet" href="${resourcePath}/static/font-awesome-4.7.0/css/font-awesome.min.css">
     <script src="${resourcePath}/static/jq/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="${resourcePath}/js/header.js" type="text/javascript"></script>
@@ -219,8 +222,8 @@
                     <h4>支持我们</h4>
                     <div class="fa fa-rmb pay"> </div>
                     <div class=" fa fa-wechat pay"> </div>
-                    <img class='QRcode baopay' id='baopay' src="${resourcePath}/static/images/pay/paybao.jpg" alt="music">
-                    <img class='QRcode weipay' id='weipay' src="${resourcePath}/static/images/pay/weixin.jpg" alt="music">
+                    <img class='QRcode baopay' id='baopay' src="${resourcePath}/static/images/pay/paybao.jpg" alt="supportUs">
+                    <img class='QRcode weipay' id='weipay' src="${resourcePath}/static/images/pay/weixin.jpg" alt="supportUs">
                 </div>
             </div>
         </div>

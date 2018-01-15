@@ -9,4 +9,8 @@ public interface BlogMapper {
     List<Blog> findBlogByBlogQuery(BlogQuery blogQuery);
 
     Blog findById(Integer id);
+
+    void like(Integer id);
+
+    void unlike(Integer id);
 }

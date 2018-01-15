@@ -23,7 +23,16 @@ a{
 
 a:active {star:expression(this.onFocus=this.blur());}
 a:focus { outline:0; }
+
 .com{
-    width: 1000px;
+     width: 1000px;
      margin: 0 auto;
 }
+/*.article-position-com{
+     width: 700px;
+     padding:10px;
+     margin:10px auto;
+     border: 1px solid;
+     position: relative;
+
+}*/

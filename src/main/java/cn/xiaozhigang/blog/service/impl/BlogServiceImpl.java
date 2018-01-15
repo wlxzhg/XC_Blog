@@ -23,4 +23,12 @@ public class BlogServiceImpl implements BlogService {
     	if(id == null) return null;
     	return blogMapper.findById(id);
     }
+
+    public void like(Integer id) {
+    	blogMapper.like(id);
+    }
+
+    public void unlike(Integer id) {
+    	blogMapper.unlike(id);
+    }
 }

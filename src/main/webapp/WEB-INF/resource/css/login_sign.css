@@ -1,0 +1,179 @@
+ .forsign {
+  /*height: 100%;*/
+/*min-height: 750px;*/
+text-align: center;
+font-size: 14px;
+/*background-color: #f1f1f1;*/
+}
+.logina{
+display: block;
+}
+.login-position{
+	position: absolute;
+top: 56px;
+margin-left: 50px;
+}
+.forsign .main {
+    width: 320px;
+    height:410px;
+    margin: 60px auto 0;
+    padding: 50px 50px 30px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0,0,0,.1);
+    vertical-align: middle;
+    display: inline-block;
+}
+.login-title{
+	margin: 0 auto 50px;
+padding: 10px;
+font-weight: 400;
+color: #969696;
+font-size: 18px;
+}
+.login-title .active {
+    font-weight: 700;
+    color: #ea6f5a;
+    border-bottom: 2px solid #ea6f5a;
+}
+a {
+    padding: 10px;
+    color: #969696;
+}
+b {
+    padding: 10px;
+    font-weight: 700;
+}
+.sign-container{
+	width: 100%;
+	/*border: 1px solid;*/
+}
+/*form{
+	width: 100%;
+
+	margin-bottom: 30px;
+	margin: 0 0 20px;
+}*/
+/*.restyle {
+    margin-bottom: 0;
+}*/
+ .input-prepend {
+    
+    width: 100%;
+    /*margin-bottom: 20px;*/
+    height: 46px;
+    border: 1px solid #999;
+    border-radius: 2px;
+    display: flex;
+    justify-content: flex-start;
+}
+ .input-prepend i{
+ 	flex:1;
+ 	line-height: 46px;
+ 	color: #999;
+ 	font-size: 20px;
+ }
+ .restyle{
+ 	border-bottom: none;
+ }
+#session_email_or_mobile_number,
+#session_password,
+#user_nickname,
+#user_password{
+	/*width:300px;*/
+	flex:6;
+	height: 100%;
+	border: none;
+	outline: none;
+	/*margin-left: 20px;*/
+}
+.remember-btn{
+	/*margin-left: 0 !important;*/
+	margin-top:16px;
+	margin-bottom: 16px;
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+}
+.remember-btn span{
+	margin-left: 10px;
+}
+.sign-in-button,
+.sign-up-button{
+	width: 100%;
+	height: 46px;
+	background: #187cb7;
+	border: none;
+	border-radius: 25px;
+	color: white;
+	font-size: 18px;
+}
+.sign-up-button{
+	margin-top: 50px;
+	margin-bottom:40px;
+}
+.sign-in-button:hover,
+.sign-up-button:hover{
+
+	background:#3db922;
+}
+
+.more-sign{
+	margin-top: 16px;
+}
+/*社交账号*/
+.more-sign h6{
+font-size: 12px;
+color: #b5b5b5;
+position: relative;
+}
+.more-sign h6::before,
+.more-sign h6::after{
+	content: "";
+border-top: 1px solid #b5b5b5;
+display: block;
+position: absolute;
+width: 60px;
+top: 12px;
+}
+.more-sign h6::before{
+left:30px;
+
+}
+.more-sign h6::after{
+	right: 30px;
+}
+.more-sign ul{
+	display: flex;
+	margin-top: 20px;
+}
+.more-sign ul a{
+	font-weight: 700;
+	font-size: 28px;
+	/*color:#f00;*/
+}
+.weibo{
+	color: #e05244;
+}
+.weixin{
+color: #00bb29;
+}
+.qq{
+	color:#498ad5;;
+}
+
+ @media screen and (max-width:900px) {
+	.logo,
+	.login-position,
+	.logina
+	{
+		display:none;
+	}
+}
+ @media screen and (max-width:440px){
+ 	.forsign .main{
+ 		padding:40px 10px;
+    width: 90%;
+
+ 	}
+ }

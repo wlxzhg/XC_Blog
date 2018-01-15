@@ -1,0 +1,18 @@
+
+ .logo {
+     -webkit-background-clip: text;
+     background-image: -webkit-linear-gradient(left, orange, green, red);
+     color: transparent;
+     transition: all 1.5s linear; 
+      float: left;
+     font-size: 46px;
+     font-weight: bold;
+     line-height: 90px;
+ }
+
+ .logo:hover {
+     transform: rotate(360deg);
+     color: orange;
+ }
+
+

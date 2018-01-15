@@ -75,7 +75,7 @@
     margin-left: 10px;
 }
 
-@media screen and (max-width: 768px) {
+/*@media screen and (max-width: 768px) {
     .content,.footer-top {
         width: 100%;
     }
@@ -112,4 +112,4 @@
         height: 134px !important;
     width: 230px !important;
     }
-  }
+  }*/

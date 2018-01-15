@@ -45,7 +45,18 @@ public class VisitController {
         model.addAttribute("blogs",blogs);
         return "main";
     }
-
+@RequestMapping("/login")
+    public String login() {
+        return "login";
+    }
+    @RequestMapping("/sign")
+    public String sign() {
+        return "sign";
+    }
+      @RequestMapping("/agreement")
+    public String agreement() {
+        return "agreement";
+    }
     /**
      * 获取blogs
      * @param category 类别用英文表示
@@ -86,5 +97,21 @@ public class VisitController {
         Blog blog = blogService.findById(id);
         model.addAttribute("blog",blog);
         return "article";
+    }
+
+    @RequestMapping(value = "article/like",method=RequestMethod.POST)
+    @ResponseBody
+    public Object likeArticle(Integer id,Integer option) {
+        if(option == 1)
+            blogService.like(id);
+        else if(option == 0)
+            blogService.unlike(id);
+        Blog blog = blogService.findById(id);
+        Map<String,Object> result = new HashMap<String, Object>();
+        if(blog != null)
+            result.put("newLikeNum",blog.getLikeNum());
+        else
+            result.put("info","fail");
+        return result;
     }
 }

@@ -69,7 +69,7 @@
     color: #27d;
 }
 
-@media screen and (max-width: 600px) {
+/*@media screen and (max-width: 600px) {
 
     .left-content .left-content-list {
         padding: 5px;
@@ -90,7 +90,7 @@
     .article-title,
     .article-eye {
         flex: 1;
-        /*text-align: center;*/
+       
     }
 
     .article-eye div {
@@ -139,9 +139,8 @@
     }
     .left-content .left-content-list {
         padding: 5px !important;
-        /*margin-top: 5px;*/
     }
     .sidebar-bottom {
         display: none;
     }
-}
+}*/
