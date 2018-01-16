@@ -7,6 +7,7 @@ import cn.xiaozhigang.blog.dto.BlogQuery;
 import cn.xiaozhigang.blog.service.BlogService;
 import cn.xiaozhigang.blog.service.UserService;
 import cn.xiaozhigang.blog.util.IpAddressUtil;
+import cn.xiaozhigang.blog.util.Md5Utils;
 import com.alibaba.fastjson.JSON;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +19,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.Path;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.sql.Timestamp;
+import java.util.*;
 
 @Controller
 @RequestMapping("")
@@ -34,8 +34,17 @@ public class VisitController {
     @Autowired
     private static Logger LOG = Logger.getLogger(VisitController.class);
 
+    private User checkUserLogin(HttpSession session) {
+        Boolean logged = (Boolean) session.getAttribute("loggedIn");
+        User user = null;
+        if(logged != null && logged == true) { //已登录
+            user = (User) session.getAttribute("user");
+        }
+        return user;
+    }
+
     @RequestMapping("")
-    public String index(Model model, HttpServletRequest request) {
+    public String index(Model model, HttpServletRequest request,HttpSession session) {
         String ip = IpAddressUtil.getIpFromRequest(request);
         LOG.info(String.format("访问首页，IP：%s",ip));
 
@@ -43,20 +52,98 @@ public class VisitController {
 
         ArrayList<Blog> blogs = (ArrayList<Blog>) blogService.findBlogByBlogQuery(blogQuery);
         model.addAttribute("blogs",blogs);
+
+        User user = checkUserLogin(session);
+        if(user != null)
+            model.addAttribute("user",user);
         return "main";
     }
-@RequestMapping("/login")
+
+    @RequestMapping("/login")
     public String login() {
         return "login";
     }
+
+    @RequestMapping("/dologin")
+    public String doLogin(String email_or_mobile_number, String password, Model model, HttpSession session) {
+        LOG.info("用户登录，用户名：" + email_or_mobile_number);
+        Boolean logged = (Boolean) session.getAttribute("loggedIn");
+        if(logged != null && logged == true) {
+            return "main";
+        }
+        String mes = null,ret;
+        if (email_or_mobile_number == null || password == null || email_or_mobile_number.equals("") || password.equals("")) {
+            mes = "parameter_error";
+            ret = "login";
+        } else {
+            User user = userService.findUserByName(email_or_mobile_number);
+            String passwordMd5 = Md5Utils.getMd5(password);
+            if(user.getPassword().equals(passwordMd5)) {
+                ret = "redirect:/";
+                user.setPassword("");
+                session.setAttribute("uid",user.getId());
+                session.setAttribute("user",user);
+                session.setAttribute("logged",true);
+            } else {
+                mes = "password_or_username_error";
+                ret = "login";
+            }
+        }
+        if(mes != null)
+            model.addAttribute("message",mes);
+        return ret;
+    }
+
+    @RequestMapping("/logout")
+    public String logout(HttpSession session) {
+        session.removeAttribute("logged");
+        session.removeAttribute("uid");
+        session.removeAttribute("user");
+        return "redirect:/";
+    }
+
     @RequestMapping("/sign")
     public String sign() {
         return "sign";
     }
-      @RequestMapping("/agreement")
+
+    /**
+     * 处理注册请求
+     * @return sign : model.message : user_exist 用户已经存在
+     *                               : database_error 数据库错误
+     *                               : null      发送的参数为Null或空字符串
+     *         login : model.message : sign_success 注册成功
+     * */
+    @RequestMapping("/dosign")
+    public String doSign(String email_or_mobile_number,String password,Model model) {
+        LOG.info("用户注册：userName:"+email_or_mobile_number);
+        if(email_or_mobile_number == null || password == null || email_or_mobile_number.equals("") || password.equals(""))
+            return "sign";
+        User user = userService.findUserByName(email_or_mobile_number);
+        if(user != null) { //已经存在该用户了
+            model.addAttribute("message","user_exist");
+            return "sign";
+        }
+        user = new User();
+        user.setUserName(email_or_mobile_number);
+        String passwordMd5 = Md5Utils.getMd5(password);
+        user.setPassword(passwordMd5);
+        user.setCreateTime(new Timestamp(System.currentTimeMillis()));
+        if(userService.addUser(user)) {
+            model.addAttribute("message", "sign_success");
+            return "login";
+        }
+        else { //数据库添加失败
+            model.addAttribute("message","database_error");
+            return "sign";
+        }
+    }
+
+    @RequestMapping("/agreement")
     public String agreement() {
         return "agreement";
     }
+
     /**
      * 获取blogs
      * @param category 类别用英文表示

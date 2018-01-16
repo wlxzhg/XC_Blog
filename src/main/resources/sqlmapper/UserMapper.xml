@@ -10,6 +10,8 @@
         <result property="lastIp" column="last_ip"/>
         <result property="lastVisitTime" javaType="java.sql.Timestamp"
                 column="last_visit_time" jdbcType="TIMESTAMP"/>
+        <result property="createTime" javaType="java.sql.Timestamp"
+                column="create_time" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <select id="findUserById" resultMap="userResultMap">
@@ -23,5 +25,24 @@
             b_user
         WHERE
             id = #{id}
+        LIMIT 1
     </select>
+
+    <select id="findUserByName" resultMap="userResultMap">
+        SELECT
+            id,
+            user_name,
+            `password`,
+            last_ip,
+            last_visit_time
+        FROM
+            b_user
+        WHERE
+            user_name = #{userName}
+        LIMIT 1
+    </select>
+
+    <insert id="addUser" parameterType="cn.xiaozhigang.blog.domain.User">
+      INSERT INTO b_user (user_name,password,create_time) VALUES (#{userName},#{password},#{createTime})
+    </insert>
 </mapper>

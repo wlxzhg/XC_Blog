@@ -39,8 +39,15 @@
         <div class="header-topbar" id="header-topbar">
             <nav class="com header-top">
                 <ul class="header-topbar-login">
-                    <li><a href="#"><span class="fa fa-user-o"></span> 注册</a></li>
-                    <li><a href="#"><span class="fa fa-user"></span> 登录</a></li>
+                    <#if user>
+                        <#--<li><a href="#"><span class="fa fa-user-o"></span> 注册</a></li>-->
+                        <li><a href="#"><span class="fa fa-user"></span> ${user.userName}</a></li>
+                        <li><a href="/logout">退出登录</a></li>
+                    <#else>
+                        <li><a href="/sign"><span class="fa fa-user-o"></span> 注册</a></li>
+                        <li><a href="/login"><span class="fa fa-user"></span> 登录</a></li>
+                    </#if>
+
                 </ul>
                 <ul class="header-topbar-about">
                     <li><a href="#"><span class="fa fa-hand-pointer-o"></span> 关于</a></li>

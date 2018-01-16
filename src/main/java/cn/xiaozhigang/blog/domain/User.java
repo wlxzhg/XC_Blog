@@ -16,6 +16,9 @@ public class User {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Timestamp lastVisitTime;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Timestamp createTime;
+
     @Override
     public String toString() {
         return "User{" +
@@ -24,6 +27,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", lastIp='" + lastIp + '\'' +
                 ", lastVisitTime=" + lastVisitTime +
+                ", createTime=" + createTime +
                 '}';
     }
 
@@ -65,5 +69,13 @@ public class User {
 
     public void setLastVisitTime(Timestamp lastVisitTime) {
         this.lastVisitTime = lastVisitTime;
+    }
+
+    public Timestamp getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Timestamp createTime) {
+        this.createTime = createTime;
     }
 }

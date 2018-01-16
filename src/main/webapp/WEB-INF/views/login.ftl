@@ -30,15 +30,15 @@
 		</h4>
             <div class="sign-container">
                 <!-- action:url 规定当提交表单时向何处发送表单数据。 -->
-                <form action="" accept-charset="UTF-8" method="post">
+                <form action="/dologin" accept-charset="UTF-8" method="post">
                     <!-- 正常登录登录名输入框 -->
                     <div class="input-prepend restyle">
                         <i class="fa fa-user"></i>
-                        <input placeholder="手机号或邮箱" type="text" name="session[email_or_mobile_number]" id="session_email_or_mobile_number" />
+                        <input placeholder="手机号或邮箱" type="text" name="email_or_mobile_number" id="session_email_or_mobile_number" />
                     </div>
                     <div class="input-prepend">
                         <i class="fa fa-key"></i>
-                        <input placeholder="密码" type="password" name="session[password]" id="session_password" />
+                        <input placeholder="密码" type="password" name="password" id="session_password" />
                     </div>
                     <div class="remember-btn">
                         <input type="checkbox" value="true" checked="checked" name="session[remember_me]" id="session_remember_me" /><span>记住我</span>

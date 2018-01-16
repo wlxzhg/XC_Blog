@@ -14,4 +14,15 @@ public class UserServiceImpl implements UserService {
     public User findUserById(Integer id) {
         return userMapper.findUserById(id);
     }
+
+    public User findUserByName(String userName) {
+        return userMapper.findUserByName(userName);
+    }
+
+    public boolean addUser(User user) {
+        if(user == null || user.getUserName() == null || user.getPassword() == null
+                || user.getUserName().equals("") || user.getPassword().equals(""))
+        return false;
+        return userMapper.addUser(user);
+    }
 }
