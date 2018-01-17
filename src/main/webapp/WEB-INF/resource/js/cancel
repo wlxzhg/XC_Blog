@@ -1,0 +1,29 @@
+$(function() {
+	let login_button = $('.sign-up-button'),
+		form = $('#loginform'),
+		hasdone = $('#hasdone'),
+		signsucc = $('#signsucc');
+
+	login_button.click(function(event) {
+		event.preventDefault();
+		// session_email_or_mobile_number
+		$ajax({
+			type: 'post',
+			url: '',
+			data: form.serialize(),
+			error: function(request) {
+				//提示用户名或密码错误
+				hasdone.show().siblings().hide();
+			},
+			success: function() {
+				//成功并跳转到登录
+				signsucc.show().siblings().hide();
+				//3庙后跳转
+				setTimeout("window.location.href = 'login'", 3000);
+
+			}
+		});
+		// $('form').submit();
+	});
+
+})

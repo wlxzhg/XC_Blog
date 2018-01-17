@@ -108,7 +108,7 @@
     #wrap{
     perspective: 2000px !important;/*透视距离500px*/
     }
-   #wrap .common{
+ /*  #wrap .common{
         height: 134px !important;
     width: 230px !important;
     }

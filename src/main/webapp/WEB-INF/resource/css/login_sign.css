@@ -10,26 +10,31 @@ display: block;
 }
 .login-position{
 	position: absolute;
-top: 56px;
-margin-left: 50px;
+	top: 56px;
+	margin-left: 50px;
 }
 .forsign .main {
     width: 320px;
     height:410px;
-    margin: 60px auto 0;
-    padding: 50px 50px 30px;
+    margin: 200px auto 0;
+    padding: 50px;
     background-color: #fff;
     border-radius: 4px;
     box-shadow: 0 0 8px rgba(0,0,0,.1);
     vertical-align: middle;
     display: inline-block;
+    /*position: relative;*/
 }
 .login-title{
-	margin: 0 auto 50px;
+	/*margin: 0 auto;*/
+	margin-bottom: 50px;
 padding: 10px;
 font-weight: 400;
 color: #969696;
 font-size: 18px;
+position: relative;
+/*border: 1px solid;*/
+
 }
 .login-title .active {
     font-weight: 700;
@@ -104,6 +109,7 @@ b {
 	height: 46px;
 	background: #187cb7;
 	border: none;
+	outline: none;
 	border-radius: 25px;
 	color: white;
 	font-size: 18px;
@@ -176,4 +182,17 @@ color: #00bb29;
     width: 90%;
 
  	}
+ }
+ /*登录提示信息*/
+ .prompt{
+	position: absolute;
+	top:-120px;
+	left: 0;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	border: 6px solid #ea6f5a;
+	border-radius: 12px;
+	box-shadow:0 0 6px #333;
+	display: none;
  }

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="${resourcePath}/static/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/login_sign.css">
     <script src="${resourcePath}/static/jq/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <!-- <script src="${resourcePath}/js/nobordrForinput.js" type="text/javascript"></script> -->
+     <script src="${resourcePath}/js/signup_submit.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -28,6 +28,11 @@
     			<b>·</b>
    				 <a  class="active" id="js-sign-up-btn" class="" href="/sign">注册</a>
   			</div>
+             <!-- 提示信息 ,内容不为空或密码错误-->
+                 <div> 
+                    <div class="prompt" id="hasdone">昵称已经注册</div>
+                    <div class="prompt" id="sign-succ">注册成功！即将转登录界面</div>
+             </div>
 		</h4>
             <div class="sign-container">
                 <!-- action:url 规定当提交表单时向何处发送表单数据。 -->
