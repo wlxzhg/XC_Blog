@@ -74,7 +74,7 @@
     </div>
     
 </body>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(function () {
        $('.sign-in-button').on('click',function (event) {
            event.preventDefault();
@@ -94,5 +94,5 @@
            })
        })
     });
-</script>
+</script> -->
 </html>

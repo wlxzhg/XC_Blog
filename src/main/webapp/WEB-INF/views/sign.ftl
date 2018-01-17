@@ -61,7 +61,7 @@
     
 </body>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(function () {
         $('.sign-up-button').on('click',function (event) {
             event.preventDefault();
@@ -79,5 +79,5 @@
             })
         })
     })
-</script>
+</script> -->
 </html>
