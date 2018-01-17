@@ -34,7 +34,8 @@
             user_name,
             `password`,
             last_ip,
-            last_visit_time
+            last_visit_time,
+            create_time
         FROM
             b_user
         WHERE

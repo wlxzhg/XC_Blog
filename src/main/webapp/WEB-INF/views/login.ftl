@@ -12,7 +12,8 @@
     
     <link rel="stylesheet" href="${resourcePath}/static/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/login_sign.css">
-   <!--  <script src="${resourcePath}/js/nobordrForinput.js" type="text/javascript"></script> -->
+    <script src="${resourcePath}/static/jq/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <!--  <script src="${resourcePath}/js/nobordrForinput.js" type="text/javascript"></script> -->
 </head>
 
 <body>
@@ -65,5 +66,25 @@
     </div>
     
 </body>
-
+<script type="text/javascript">
+    $(function () {
+       $('.sign-in-button').on('click',function (event) {
+           event.preventDefault();
+           $.ajax({
+               type:"post",
+               data:{
+                   email_or_mobile_number: $('#session_email_or_mobile_number').val(),
+                   password:$('#session_password').val()
+               },
+               url:'/dologin',
+               dataType:'json',
+               success:function (data) {
+                   alert(data.message);
+                   if(data.message == 'success')
+                       location.href="/main";
+               }
+           })
+       })
+    });
+</script>
 </html>

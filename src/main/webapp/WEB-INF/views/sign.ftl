@@ -12,7 +12,8 @@
     
     <link rel="stylesheet" href="${resourcePath}/static/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/login_sign.css">
-     <!-- <script src="${resourcePath}/js/nobordrForinput.js" type="text/javascript"></script> -->
+    <script src="${resourcePath}/static/jq/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <!-- <script src="${resourcePath}/js/nobordrForinput.js" type="text/javascript"></script> -->
 </head>
 
 <body>
@@ -55,4 +56,23 @@
     
 </body>
 
+<script type="text/javascript">
+    $(function () {
+        $('.sign-up-button').on('click',function (event) {
+            event.preventDefault();
+            $.ajax({
+                type:"post",
+                data:{
+                    email_or_mobile_number: $('#user_nickname').val(),
+                    password:$('#user_password').val()
+                },
+                url:'/dosign',
+                dataType:'json',
+                success:function (data) {
+                    alert(data.message);
+                }
+            })
+        })
+    })
+</script>
 </html>
