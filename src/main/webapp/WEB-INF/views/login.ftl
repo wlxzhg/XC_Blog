@@ -12,7 +12,8 @@
     
     <link rel="stylesheet" href="${resourcePath}/static/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/login_sign.css">
-   <!--  <script src="${resourcePath}/js/nobordrForinput.js" type="text/javascript"></script> -->
+    <script src="${resourcePath}/static/jq/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="${resourcePath}/js/loginsubmit.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -27,10 +28,15 @@
     			<b>·</b>
    				 <a id="js-sign-up-btn" class="" href="/sign">注册</a>
   			</div>
+                 <!-- 提示信息 ,内容不为空或密码错误-->
+                 <div> <div class="prompt" id="no-content">输入不能为空</div>
+    <div class="prompt" id="err-content">用户名或密码有误</div></div>
+   
 		</h4>
             <div class="sign-container">
                 <!-- action:url 规定当提交表单时向何处发送表单数据。 -->
-                <form action="/dologin" accept-charset="UTF-8" method="post">
+                <!-- <form action="/dologin" accept-charset="UTF-8" method="post"> -->
+                <form id="loginform" accept-charset="UTF-8">
                     <!-- 正常登录登录名输入框 -->
                     <div class="input-prepend restyle">
                         <i class="fa fa-user"></i>
@@ -43,7 +49,8 @@
                     <div class="remember-btn">
                         <input type="checkbox" value="true" checked="checked" name="session[remember_me]" id="session_remember_me" /><span>记住我</span>
                     </div>
-                    <input type="submit" name="commit" value="登录" class="sign-in-button" data-disable-with="登录" />
+                    <input type="button" name="commit" value="登录" class="sign-in-button" data-disable-with="登录"/>
+                    <!-- <button name="commit" value="登录" class="sign-in-button" data-disable-with="登录" ></button> -->
                 </form>
                 <!-- 更多登录方式 -->
                 <div class="more-sign">
@@ -61,6 +68,7 @@
                     <div class="weibo-geetest-captcha"></div>
                 </div>
             </div>
+
         </div>
     </div>
     

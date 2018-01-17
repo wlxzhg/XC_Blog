@@ -14,6 +14,8 @@ $(function() {
 			docBody.scrollLeft = 0;
 
 		}
+		// window.loginSucceed = true;
 	})
+
 
 })

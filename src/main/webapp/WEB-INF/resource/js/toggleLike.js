@@ -4,15 +4,24 @@ $(function() {
 			_thisSpan = _this.find('span'),
 			_thisI = _this.find('i');
 		_this.click(function() {
-			let num = parseInt(_thisI.text()),
-				_thisId = $('#hiddeninputid').val();
-			if (_thisSpan.attr('class') === 'fa fa-heart-o') {
-				fleshNumber(_thisId, 1)
+			//点赞，若未登录则不能点
+			//还要解决，一个用户只能点赞一次
+			let nogivelike = true; //替换后台返回的判断
+			if (window.loginSucceed && nogivelike) {
+				let num = parseInt(_thisI.text()),
+					_thisId = $('#hiddeninputid').val();
+				if (_thisSpan.attr('class') === 'fa fa-heart-o') {
+					fleshNumber(_thisId, 1)
 
+				} else {
+					fleshNumber(_thisId, 0)
+						// fleshNumber(num-1)
+				}
 			} else {
-				fleshNumber(_thisId, 0)
-					// fleshNumber(num-1)
+				window.open("/login"); //跳转页面，打开新的窗口
+				window.history.back(-1); //返回上一页
 			}
+
 			// $(this).find('span').removeClass('fa - heart -o').addClass('fa - heart');
 
 		});
