@@ -24,13 +24,18 @@
  }
 
  .header-topbar-about {
-     float: right;
+     float: right; 
+     cursor: pointer;
  }
 
  .header-topbar-login li,
  .header-topbar-about li {
-     width: 60px;
+     /*width: 60px;*/
      line-height: 30px;
+     margin:auto 10px;
+
+
+     /*margin: 5px;*/
  }
 
  .header-topbar-about li {
@@ -151,7 +156,7 @@
      flex-direction: column;
      background-color: #fff;
      /*opacity: 0.9;*/
-     display: none;
+    display: none;
  }
 
  .small-nav-list li {
@@ -159,19 +164,29 @@
      border-bottom: 1px solid #eee;
      text-align: center;
      line-height: 40px;
+
  }
 
  .small-nav-list li:hover {
      background: #27d;
      color: #fff;
  }
+
  .small-nav-list li a{
     color: inherit;
  }
 
+.small-screen-login{
+      /*display: none;*/
+        overflow: hidden;
+     white-space: nowrap;
+  
+    text-overflow: ellipsis;
+    display: none;
 
- /*响应式布局*/
+}
 
+/*响应式布局*/
 /* @media screen and (max-width: 1000px) {
      .header-top,
      .header-bottom {
@@ -228,3 +243,11 @@
      color: #27d;
      cursor: pointer;
  }
+
+ /*用户登录后，部分信息要屏蔽掉加入该类，并显示其他，移除该类*/
+/* .user-afterlogin-show{
+    display: block;
+ }*/
+  .user-afterlogin-hide{
+    display: none;
+  }

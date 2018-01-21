@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/index.css">
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/header.css">
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/logo.css">
-
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/content.css">
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/content-search.css">
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/tags.css">
@@ -23,7 +22,9 @@
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/backtotop.css">
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/automedia.css">
     <link rel="stylesheet" href="${resourcePath}/static/font-awesome-4.7.0/css/font-awesome.min.css">
+    
     <script src="${resourcePath}/static/jq/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="${resourcePath}/js/userLoginInterface.js" type="text/javascript"></script> 
     <script src="${resourcePath}/js/header.js" type="text/javascript"></script>
     <script src="${resourcePath}/js/tags.js" type="text/javascript"></script>
     <script src="${resourcePath}/js/musicSlide.js" type="text/javascript"></script>
@@ -32,27 +33,33 @@
     <!-- <script src="${resourcePath}/js/test.js" type="text/javascript"></script> -->
     <script src="${resourcePath}/js/toTop.js" type="text/javascript"></script>
     <script src="${resourcePath}/js/jumpArticle.js" type="text/javascript"></script>
+    <script src="${resourcePath}/js/login_change_information.js" type="text/javascript"></script>
+   
+
 </head>
 
 <body>
     <header class="header" id="header">
         <div class="header-topbar" id="header-topbar">
             <nav class="com header-top">
-                <ul class="header-topbar-login">
-                    <#if user>
-                        <#--<li><a href="#"><span class="fa fa-user-o"></span> 注册</a></li>-->
-                        <li><a href="#"><span class="fa fa-user"></span> ${user.userName}</a></li>
-                        <li><a href="/logout">退出登录</a></li>
-                    <#else>
+                <div class="no-login">
+                    <ul class="header-topbar-login">
                         <li><a href="/sign"><span class="fa fa-user-o"></span> 注册</a></li>
                         <li><a href="/login"><span class="fa fa-user"></span> 登录</a></li>
-                    </#if>
-
-                </ul>
-                <ul class="header-topbar-about">
-                    <li><a href="#"><span class="fa fa-hand-pointer-o"></span> 关于</a></li>
-                    <li><a href="#"><span class="fa fa-hand-paper-o"></span> 其他</a></li>
-                </ul>
+                    </ul>
+                    <ul class="header-topbar-about">
+                        <li><a href="#"><span class="fa fa-hand-pointer-o"></span> 关于</a></li>
+                        <li><a href="#"><span class="fa fa-hand-paper-o"></span> 其他</a></li>
+                    </ul>
+                </div>
+                <div class="haslogin  user-afterlogin-hide">
+                    <ul class="header-topbar-login ">
+                        <li><span class="fa fa-user-circle-o"></span> <span class="trueusername"> 替换用户名称</span></li>
+                    </ul>
+                    <ul class="header-topbar-about">
+                        <li class="logout"><span class="fa fa-circle-o-notch"></span> 注销</li>
+                    </ul>
+                </div>
             </nav>
         </div>
         <div class="header-nav" id="header-nav">
@@ -67,7 +74,7 @@
                         <li><a href="#"><span class="fa fa-music"></span> 音乐</a></li>
                         <li><a href="#"><span class="fa fa-magic"></span> 人工智能</a></li>
                         <!-- <li><a href="">黑科技</a></li> -->
-                        <li id="nave-more"><a href="#"><span class="fa fa-angle-double-down"></span> 更多</a>
+                        <li class="nave-more"><a href="#"><span class="fa fa-angle-double-down"></span> 更多</a>
                             <ul class="more-list" id="more-list">
                                 <li><a href="#"><span class="fa fa-smile-o"></span>  开心一刻</a></li>
                                 <li><a href="#"><span class="fa fa-clock-o"></span>  美食时间</a></li>
@@ -78,9 +85,10 @@
                     </ul>
                 </div>
                 <ul class="main-nav-list-iphone" id="main-nav-list-iphone">
-                    <li><a href="#"><span class="fa fa-home"></span> 首页</a></li>
+                    <li><a href="/main"><span class="fa fa-home"></span> 首页</a></li>
                     <li class="small-more" id="small-more"><a href="#"><span class="fa fa-bars"></span> 更多</a></li>
-                    <li><a href="#"><span class="fa fa-user"></span> 登录</a></li>
+                    <li class="small-screen-nologin"><a href="/login"><span class="fa fa-user"></span> 登录</a></li>
+                    <li class="small-screen-login"><a href="/"><span class="fa fa-user"></span> <span class="trueusername"> 替换用户名称</span></a></li>
                 </ul>
                 <div class="content-search" id="content-search">
                     <form>
