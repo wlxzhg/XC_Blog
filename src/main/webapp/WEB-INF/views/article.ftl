@@ -14,10 +14,10 @@
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/content-search.css">
     <link rel="stylesheet" href="${resourcePath}/static/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/readingarticle.css">
-    <script src="${resourcePath}/js/global.js" type="text/javascript"></script>
     <script src="${resourcePath}/static/jq/jquery-3.2.1.min.js" type="text/javascript"></script>
+      <script src="${resourcePath}/js/userLoginInterface.js" type="text/javascript"></script> 
     <script src="${resourcePath}/js/header.js" type="text/javascript"></script>
-    <script src="${resourcePath}/js/toggleLike.js" type="text/javascript"></script>
+    <!-- <script src="${resourcePath}/js/toggleLike.js" type="text/javascript"></script> 文件转移到接口文件中-->
     <script src="${resourcePath}/js/articleSupport.js" type="text/javascript"></script>
     <script src="${resourcePath}/js/pay.js" type="text/javascript"></script>
     <script src="${resourcePath}/js/loginForComment.js" type="text/javascript"></script>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="haslogin user-afterlogin-hide">
                     <ul class="header-topbar-login ">
-                        <li><span class="fa fa-user-circle-o"></span>替换用户名称</li>
+                        <li><span class="fa fa-user-circle-o"></span> <span class="trueusername"> 替换用户名称</span></li>
                     </ul>
                     <ul class="header-topbar-about">
                         <li class="logout"><span class="fa fa-circle-o-notch"></span>注销</li>
@@ -92,7 +92,7 @@
                     <li><a href="/main"><span class="fa fa-home"></span> 首页</a></li>
                     <li class="small-more" ><a href="#"><span class="fa fa-bars"></span> 更多</a></li>
                     <li class="small-screen-nologin"><a href="/login"><span class="fa fa-user"></span> 登录</a></li>
-                    <li class="small-screen-login"><a href="#"><span class="fa fa-user"></span> 用户名替换</a></li>
+                    <li class="small-screen-login"><a href="#"><span class="fa fa-user"></span> <span class="trueusername"> 替换用户名称</span></a></li>
                 </ul>
                 <div class="content-search" id="content-search">
                     <form>
@@ -136,7 +136,8 @@
                 </a>
                 <span>后发表评论...</span>
             </div>
-            <div class="writecomment-wrap notice-login-showorhidden">
+            <!-- <div class="writecomment-wrap notice-login-showorhidden"> -->
+            <div class="writecomment-wrap">
                 <textarea class="writecomment" name="comment" id="writecomment" placeholder="写下您的评论..." autocomplete="off"></textarea>
             </div>
         </div>

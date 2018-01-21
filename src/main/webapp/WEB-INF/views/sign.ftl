@@ -31,12 +31,13 @@
              <!-- 提示信息 ,内容不为空或密码错误-->
                  <div> 
                     <div class="prompt" id="hasdone">昵称已经注册</div>
+                    <div class="prompt" id="sign-no-content">输入不能为空</div>
                     <div class="prompt" id="sign-succ">注册成功！即将转登录界面</div>
              </div>
 		</h4>
             <div class="sign-container">
                 <!-- action:url 规定当提交表单时向何处发送表单数据。 -->
-                <form action="/dosign" accept-charset="UTF-8" method="post">
+                <form  accept-charset="UTF-8" method="post">
                     <!-- 正常登录登录名输入框 -->
                     <div class="input-prepend restyle">
                         <i class="fa fa-user"></i>

@@ -1,5 +1,6 @@
 $(function() {
 		// body...
+		//该文件的功能转移到userLoginInterface.js中
 		let _this = $('.article-like'),
 			_thisSpan = _this.find('span'),
 			_thisI = _this.find('i');
@@ -25,9 +26,9 @@ $(function() {
 			// $(this).find('span').removeClass('fa - heart -o').addClass('fa - heart');
 
 		});
-
-		//id文章id
-		//option 0取消点赞 1点赞
+		console.log(window.isLogin)
+			//id文章id
+			//option 0取消点赞 1点赞
 		function fleshNumber(id, option) {
 			$.ajax({
 				type: 'post',

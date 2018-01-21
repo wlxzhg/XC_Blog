@@ -62,7 +62,10 @@ public class VisitController {
     }
 
     @RequestMapping("/login")
-    public String login() {
+    public String login(HttpSession session) {
+        Boolean logged = (Boolean) session.getAttribute(Constant.SESSION_KEY_FOE_LOGGED);
+        if(logged != null && logged == true) 
+            return "redirect:/";
         return "login";
     }
 

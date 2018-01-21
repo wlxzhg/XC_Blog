@@ -14,6 +14,8 @@
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/login_sign.css">
     <script src="${resourcePath}/static/jq/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="${resourcePath}/js/loginsubmit.js" type="text/javascript"></script>
+    <script src="${resourcePath}/js/login_change_information.js" type="text/javascript"></script>
+    
 
 </head>
 

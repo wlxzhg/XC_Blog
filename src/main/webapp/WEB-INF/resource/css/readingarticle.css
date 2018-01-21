@@ -128,6 +128,9 @@ height: 40px;
 border: 1px solid #ddd;
 border-radius: 50%;
 }
+.writecomment-wrap{
+	display: none;
+}
 .writecomment-wrap,.notice-login{
 	width: 92%;
 	height: 80px;
@@ -144,16 +147,17 @@ background-color: hsla(0,0%,71%,.1);
 }
 .writecomment{
 	font-size: 14px;
-	color:#888;
+	color:#888;reading-article-wrap
 	outline-style: none;/*无轮廓*/
 	resize: none;/*禁止拉伸*/
 	width: 100%;
 	height: 100%;
+	/*display: none;*/
 	/*padding:2px;*/
 }
-.notice-login-showorhidden{
+/*.notice-login-showorhidden{
 	display: none;
-}
+}*/
 .notice-login button{
 	width: 78px;
 margin: 23px 10px 0 0;
