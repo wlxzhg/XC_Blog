@@ -62,7 +62,7 @@ public class VisitController {
     }
 
     @RequestMapping("/login")
-    public String login() {
+    public String login(HttpSession session) {
         return "login";
     }
 

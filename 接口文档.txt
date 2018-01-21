@@ -33,6 +33,7 @@
 ·µ»Ø£¨JSON£©£º
 	{isLogin:false} //Î´µÇÂ¼
 	
+	//³É¹¦µÇÂ½
 	{
 		isLogin: true,
 		user: {
