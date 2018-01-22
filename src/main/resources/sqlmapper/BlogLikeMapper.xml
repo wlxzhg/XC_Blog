@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xiaozhigang.blog.mapper.BlogLikeMapper">
+    <resultMap id="blogLikeResultMapper" type="cn.xiaozhigang.blog.domain.BlogLike">
+        <id property="id" column="id"/>
+        <result property="blogId" column="blog_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="createTime"  javaType="java.sql.Timestamp"
+                column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="valid" column="valid"/>
+    </resultMap>
+
+    <insert id="addLike" parameterType="cn.xiaozhigang.blog.domain.BlogLike">
+        INSERT INTO b_blog_like(bid,uid,create_time,valid) VALUES (#{blogId},#{userId},#{createTime},1)
+    </insert>
+
+    <update id="removeLike" parameterType="map">
+        UPDATE  b_blog_like SET valid = 0 WHERE bid = #{blogId} AND uid = #{userId}
+    </update>
+
+    <update id="reLike" parameterType="map">
+        UPDATE  b_blog_like SET valid = 1 WHERE bid = #{blogId} AND uid = #{userId}
+    </update>
+
+    <select id="isLikeed" parameterType="map" resultType="int">
+        SELECT count(*) FROM b_blog_like WHERE bid = #{blogId} AND uid = #{userId} AND valid = 1
+    </select>
+
+    <select id="findByBidAndUid" parameterType="map" resultMap="blogLikeResultMapper">
+        SELECT id,bid,uid,create_time,valid FROM b_blog_like WHERE bid = #{blogId} AND uid = #{userId}
+    </select>
+</mapper>

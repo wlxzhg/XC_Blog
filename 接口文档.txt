@@ -45,3 +45,13 @@
 			createTime: null
 		}
 	}
+	
+5.article/like
+作用：点赞或取消点赞
+请求方法：post
+参数：id:文章id，option:1点赞 0取消点赞
+返回JSON:
+	1.点赞或取消点赞成功：{newLikeNUm:10}
+	2.用户未登录：{info:"not login"}
+	3.重复点赞或取消：{info:"不能重复点赞或取消点赞喔！"}
+	4.文章（更具id查询）不存在:{info:article is not exist}

@@ -124,7 +124,12 @@
         </div>
         <div class="like-and-support">
             <div class="article-like-support article-like">
-                <span class="fa fa-heart-o"></span>喜欢|<i class="like-num">${blog.likeNum}</i>
+                <#if isLike == "true">
+                    <span class="fa fa-heart"></span>喜欢|<i class="like-num">${blog.likeNum}</i>
+                <#else>
+                    <span class="fa fa-heart-o"></span>喜欢|<i class="like-num">${blog.likeNum}</i>
+                </#if>
+
             </div>
             <div class="article-like-support article-support" id="article-support">赞赏支持</div>
         </div>

@@ -3,8 +3,10 @@ package cn.xiaozhigang.blog.controller;
 import cn.xiaozhigang.blog.constant.BlogCategoryEnum;
 import cn.xiaozhigang.blog.constant.Constant;
 import cn.xiaozhigang.blog.domain.Blog;
+import cn.xiaozhigang.blog.domain.BlogLike;
 import cn.xiaozhigang.blog.domain.User;
 import cn.xiaozhigang.blog.dto.BlogQuery;
+import cn.xiaozhigang.blog.service.BlogLikeService;
 import cn.xiaozhigang.blog.service.BlogService;
 import cn.xiaozhigang.blog.service.UserService;
 import cn.xiaozhigang.blog.util.IpAddressUtil;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.jws.soap.SOAPBinding;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.Path;
@@ -33,6 +36,8 @@ public class VisitController {
     private UserService userService;
     @Autowired
     private BlogService blogService;
+    @Autowired
+    private BlogLikeService blogLikeService;
     @Autowired
     private static Logger LOG = Logger.getLogger(VisitController.class);
 
@@ -192,25 +197,54 @@ public class VisitController {
     }
 
     @RequestMapping("article/{id}")
-    public String article(@PathVariable Integer id,Model model) {
+    public String article(@PathVariable Integer id,Model model,HttpSession session) {
         Blog blog = blogService.findById(id);
         model.addAttribute("blog",blog);
+        User user = checkUserLogin(session);
+        boolean flag = false;
+        if(user !=null)
+            flag = blogLikeService.isLikeed(id,user.getId());
+        model.addAttribute("isLike",(flag==true)?"true":"false");
         return "article";
     }
 
     @RequestMapping(value = "article/like",method=RequestMethod.POST)
     @ResponseBody
-    public Object likeArticle(Integer id,Integer option) {
-        if(option == 1)
-            blogService.like(id);
-        else if(option == 0)
-            blogService.unlike(id);
-        Blog blog = blogService.findById(id);
+    public Object likeArticle(Integer id,Integer option,HttpSession session) {
         Map<String,Object> result = new HashMap<String, Object>();
-        if(blog != null)
-            result.put("newLikeNum",blog.getLikeNum());
+        User user = checkUserLogin(session);
+        if(user == null) {
+            result.put("info","not login");
+            return result;
+        }
+
+        BlogLike blogLike = blogLikeService.findByBidAndUid(id, user.getId());
+        boolean isLiked = (blogLike == null || blogLike.getValid() == 0)?false:true;
+        if((isLiked && option == 1) || (!isLiked && option == 0)) {
+            result.put("info","不能重复点赞或取消点赞喔！");
+        } else if (option == 1 && (!isLiked)) {
+            //点赞的情况
+            if(blogLike == null) {
+                blogLike = new BlogLike();
+                blogLike.setUserId(user.getId());
+                blogLike.setBlogId(id);
+                blogLike.setCreateTime(new Timestamp(System.currentTimeMillis()));
+                blogLike.setValid(1);
+                blogLikeService.addLike(blogLike);
+            } else {
+                blogLikeService.reLike(id,user.getId());
+            }
+            blogService.like(id); //增加点赞数
+        } else if(option == 0 && isLiked) {
+            //取消点赞的情况
+            blogLikeService.removeLike(id, user.getId());
+            blogService.unlike(id);
+        }
+        Blog blog = blogService.findById(id);
+        if(blog == null)
+            result.put("info","article is not exist");
         else
-            result.put("info","fail");
+            result.put("newLikeNum",blog.getLikeNum());
         return result;
     }
 
