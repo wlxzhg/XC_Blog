@@ -1,0 +1,96 @@
+  body {
+        font-family: Georgia, serif;
+    }
+blockquote {
+    padding: 0 0 0 15px;
+    margin: 0 0 20px;
+    border-left: 5px solid #aaa;
+    background: #eee;
+}
+
+    pre {
+        display: block;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 20px;
+        word-break: break-all;
+        word-wrap: break-word;
+        white-space: pre;
+        white-space: pre-wrap;
+        background-color: #f5f0f0;
+        border: 1px solid #ccc;
+    }
+
+    code,
+    pre {
+        padding: 0 3px 2px;
+        font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+        font-size: 12px;
+        color: #333;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+
+    .editor-wrap {
+        display: flex;
+        /*width: 1600px;*/
+        position: relative;
+        /*padding: 10px;*/
+        /*margin: 100px auto;*/
+    }
+
+    #editorMk,
+    #showHtml {
+        flex: 1;
+        border: 1px solid #ccc;
+        
+    }
+
+    #editorMk {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin: 0;
+        height: 1000px;
+    }
+
+    #showHtml {
+        background: #fcfaf2;
+        overflow: scroll;
+        padding: 20px;
+        height: 960px;
+    }
+    #editorHeader{
+    	width:400px;
+    	height: 40px;
+    	margin: 10px auto;
+    	background: #20a0b0;
+    	color:white;
+    	font-weight:bolder;
+    	font-size: 20px;
+    	line-height: 40px;
+    	border-radius: 6px;
+    	box-shadow: 0 5px 5px 0 #305b99;
+    }
+    #editorHeader ul{
+    	display: flex;
+    	width: 100%;
+		padding-left: 0;
+    	/*border:  1px solid #000;*/
+
+    }
+    #editorHeader ul li{
+    	flex:1;
+    	list-style: none;
+    	cursor: pointer;
+    	/*border:  1px solid #000;*/
+    	text-align: center;
+
+    }
+     #editorHeader ul li a{
+     	display: block;
+     	text-decoration: none;
+     	color: inherit;
+     }
