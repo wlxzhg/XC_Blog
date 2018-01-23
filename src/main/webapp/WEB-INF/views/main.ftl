@@ -68,7 +68,7 @@
                 <div class="search" id="search"><span class="fa fa-search" id="search-nav"></span></div>
                 <div class="main-nav" id="main-nav">
                     <ul class="main-nav-list" id="main-nav-list">
-                        <li><a href="#" class="navdefault-color"><span class="fa fa-home"></span> 首页</a></li>
+                        <li><a href="/" class="navdefault-color"><span class="fa fa-home"></span> 首页</a></li>
                         <!-- <li><a href="">web前端</a></li> -->
                         <li><a href="#"><span class="fa fa-file-text"></span> 技术干货</a></li>
                         <li><a href="#"><span class="fa fa-music"></span> 音乐</a></li>
