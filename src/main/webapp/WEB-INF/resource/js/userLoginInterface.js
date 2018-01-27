@@ -17,34 +17,34 @@ $(function() {
 		loginWriteComment = $('.writecomment-wrap');
 
 	$.ajax({
-			type: 'get',
-			url: '/login_status',
-			dataType: 'json',
-			success: function(data) {
-				// alert(data.userName)
-				if (data.isLogin) {
+		type: 'get',
+		url: '/login_status',
+		dataType: 'json',
+		success: function(data) {
+			// alert(data.userName)
+			if (data.isLogin) {
 
 
-					window.isLogin = true;
-					// alert(window.isLogin)
-					userName = data.user.userName;
-					hasloginuser.removeClass('user-afterlogin-hide');
-					showuserName.text(userName);
-					nologinuser.hide();
-					smallnologinuser.hide();
-					smallhasloginuser.show();
-					noticeLoginComment.hide();
-					loginWriteComment.show();
-				} else {
-					window.isLogin = false;
-					logout();
+				window.isLogin = true;
+				// alert(window.isLogin)
+				userName = data.user.userName;
+				hasloginuser.removeClass('user-afterlogin-hide');
+				showuserName.text(userName);
+				nologinuser.hide();
+				smallnologinuser.hide();
+				smallhasloginuser.show();
+				noticeLoginComment.hide();
+				loginWriteComment.show();
+			} else {
+				window.isLogin = false;
+				logout();
 
 
-				}
 			}
+		}
 
-		})
-		//header注销，注销更改信息
+	})
+	//header注销，注销更改信息
 	function logout() {
 		// window.user.isLogin = false;
 
@@ -99,7 +99,7 @@ $(function() {
 
 			} else {
 				fleshNumber(_thisId, 0)
-					// fleshNumber(num-1)
+				// fleshNumber(num-1)
 			}
 		} else {
 			window.open("/login"); //跳转页面，打开新的窗口
@@ -109,9 +109,9 @@ $(function() {
 		// $(this).find('span').removeClass('fa - heart -o').addClass('fa - heart');
 
 	});
-	console.log(window.isLogin)
-		//id文章id
-		//option 0取消点赞 1点赞
+	// console.log(window.isLogin)
+	//id文章id
+	//option 0取消点赞 1点赞
 	function fleshNumber(id, option) {
 		$.ajax({
 			type: 'post',

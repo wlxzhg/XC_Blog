@@ -48,8 +48,8 @@
                         <li><a href="/login"><span class="fa fa-user"></span> 登录</a></li>
                     </ul>
                     <ul class="header-topbar-about">
-                        <li><a href="#"><span class="fa fa-hand-pointer-o"></span> 关于</a></li>
-                        <li><a href="#"><span class="fa fa-hand-paper-o"></span> 其他</a></li>
+                        <li><a href="/about"><span class="fa fa-hand-pointer-o"></span> 关于</a></li>
+                        <li><a href="other"><span class="fa fa-hand-paper-o"></span> 其他</a></li>
                     </ul>
                 </div>
                 <div class="haslogin  user-afterlogin-hide">
@@ -57,7 +57,9 @@
                         <li><span class="fa fa-user-circle-o"></span> <span class="trueusername"> 替换用户名称</span></li>
                     </ul>
                     <ul class="header-topbar-about">
+                        <li><a href="/myAticle"><span class="fa fa-file"></span> <span class="myAticle"> 我的文章</span></a></li>
                         <li class="logout"><span class="fa fa-circle-o-notch"></span> 注销</li>
+
                     </ul>
                 </div>
             </nav>
@@ -70,7 +72,7 @@
                     <ul class="main-nav-list" id="main-nav-list">
                         <li><a href="/" class="navdefault-color"><span class="fa fa-home"></span> 首页</a></li>
                         <!-- <li><a href="">web前端</a></li> -->
-                        <li><a href="#"><span class="fa fa-file-text"></span> 技术干货</a></li>
+                        <li><a href="tech"><span class="fa fa-file-text"></span> 技术干货</a></li>
                         <li><a href="#"><span class="fa fa-music"></span> 音乐</a></li>
                         <li><a href="#"><span class="fa fa-magic"></span> 人工智能</a></li>
                         <!-- <li><a href="">黑科技</a></li> -->
