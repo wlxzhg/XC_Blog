@@ -123,6 +123,10 @@ public class VisitController {
     public String sign() {
         return "sign";
     }
+      @RequestMapping("/md")
+    public String md() {
+        return "md";
+    }
 
     /**
      * 处理注册请求

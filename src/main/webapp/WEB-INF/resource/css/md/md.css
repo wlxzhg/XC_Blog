@@ -54,6 +54,7 @@ blockquote {
         top: 0;
         margin: 0;
         height: 1000px;
+        /*overflow: scroll;*/
     }
 
     #showHtml {
@@ -62,8 +63,9 @@ blockquote {
         padding: 20px;
         height: 960px;
     }
+    /*头部导航工具栏*/
     #editorHeader{
-    	width:400px;
+    	width:500px;
     	height: 40px;
     	margin: 10px auto;
     	background: #20a0b0;
@@ -94,3 +96,78 @@ blockquote {
      	text-decoration: none;
      	color: inherit;
      }
+     #editorHeader ul li:hover{
+        color: #f9a540;
+     }
+
+     /*制作上传文件*/
+    #transferimg{
+        width: 400px;
+        height: 180px;
+        padding: 20px;
+        border: 2px solid #999;
+        border-radius: 4px;
+        /*text-align: center;*/
+        position: absolute;
+        background: #ccc;
+        z-index: 999;
+        display: none;
+
+    }
+    #transferimg input,.selectimg{
+        position: absolute;
+        /*left:0; */
+        /*left:170px; */
+    }
+    #transferimg input{
+        opacity: 0;
+    }
+    .selectimg{
+          /*width: 80px;*/
+        height: 34px;
+        max-width: 360px;
+        overflow: scroll;
+       
+    }
+    .selectimg,.geratelink{
+        border-radius: 4px;
+        background: #20a0f0;
+        color: #fff;
+        outline: 0;
+        border: 1px solid #20a0f0;
+        cursor: pointer;
+
+
+
+    }
+   .selewrap{
+    margin-top:70px;
+    display: flex;
+
+   }
+    .geratelink{
+        /*color: #999;*/
+        width: 26px;
+        height: 100px;
+        font-size: 14px;
+        font-weight: bolder;
+       display: flex;
+       justify-content: center;
+    }
+    .imglink{
+        width: 90%;
+        height: 100px;
+        border: 2px solid #20a0f0;
+        border-radius: 6px;
+       word-wrap:break-word;
+       margin-left: 10px;
+       background: #fff;
+       overflow: scroll;
+    }
+    .imglink img{
+        max-width: 300px;
+        max-height: 90px;
+    }
+    .imgclose{
+        float: right;
+    }

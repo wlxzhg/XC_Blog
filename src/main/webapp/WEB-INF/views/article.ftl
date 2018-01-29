@@ -14,14 +14,25 @@
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/content-search.css">
     <link rel="stylesheet" href="${resourcePath}/static/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="${resourcePath}/css/readingarticle.css">
+    <!--  <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet"> -->
+     <link href="${resourcePath}/css/md/sublime.css" rel="stylesheet">
+    <link rel="stylesheet" href="${resourcePath}/css/md/md.css">
     <script src="${resourcePath}/static/jq/jquery-3.2.1.min.js" type="text/javascript"></script>
       <script src="${resourcePath}/js/userLoginInterface.js" type="text/javascript"></script> 
     <script src="${resourcePath}/js/header.js" type="text/javascript"></script>
     <!-- <script src="${resourcePath}/js/toggleLike.js" type="text/javascript"></script> 文件转移到接口文件中-->
     <script src="${resourcePath}/js/articleSupport.js" type="text/javascript"></script>
     <script src="${resourcePath}/js/pay.js" type="text/javascript"></script>
+    <script src="${resourcePath}/js/center.js"></script>
+    
     <script src="${resourcePath}/js/loginForComment.js" type="text/javascript"></script>
     <script src="${resourcePath}/js/login_change_information.js" type="text/javascript"></script>
+    <script src="${resourcePath}/static/markDownStatic/marked.min.js"></script>
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <!-- <script src="${resourcePath}/static/markDownStatic/highlight.js"></script> -->
+
+
+
 </head>
 
 <body>
@@ -55,6 +66,7 @@
                         <li><span class="fa fa-user-circle-o"></span> <span class="trueusername"> 替换用户名称</span></li>
                     </ul>
                     <ul class="header-topbar-about">
+                        <li><a href="/myAticle"><span class="fa fa-file"></span> <span class="myAticle"> 我的文章</span></a></li>
                         <li class="logout"><span class="fa fa-circle-o-notch"></span>注销</li>
                     </ul>
                 </div>
@@ -66,7 +78,7 @@
                 <div class="search" id="search"><span class="fa fa-search" id="search-nav"></span></div>
                 <div class="main-nav">
                     <ul class="main-nav-list" id="main-nav-list">
-                        <li><a href="#" class="navdefault-color"><span class="fa fa-home"></span> 首页</a></li>
+                        <li><a href="/" class="navdefault-color"><span class="fa fa-home"></span> 首页</a></li>
                         <!-- <li><a href="">web前端</a></li> -->
                         <li><a href="#"><span class="fa fa-file-text"></span> 技术干货</a></li>
                         <li><a href="#"><span class="fa fa-music"></span> 音乐</a></li>
