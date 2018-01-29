@@ -261,4 +261,16 @@ public class VisitController {
         }
         return map;
     }
+
+    @RequestMapping("writer")
+    public String writer() {
+        return "md";
+    }
+
+    @RequestMapping("writer/save")
+    @ResponseBody
+    public Object writerSave(HttpSession session) {
+
+        return null;
+    }
 }
