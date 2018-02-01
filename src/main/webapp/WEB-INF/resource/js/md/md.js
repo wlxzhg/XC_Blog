@@ -91,18 +91,19 @@ $(function() {
     //以下为发布功能，点击发布后，文章插入到首页第一篇文章
     publish.click(function() {
         let title = titleReg.exec(htmlData)[0],
-         shortIntr = '';
+            shortIntr = '';
         shortIntr = mdData.match(contentReg).join('').substring(0, 120);
-
         $.ajax({
             type: 'post',
             url: '/writer/publish',
             data: {
+
                 title: title, //首页显示用户标题
                 brief: shortIntr,
                 text: htmlData, //html的内容
-                category:"front_end", //替换成选择的类别
+                category: "front_end", //替换成选择的类别
                 name: 'uesr' //传递用户名 //不需要
+
             },
             dataType: 'json',
             success: function() {
@@ -175,7 +176,7 @@ $(function() {
                 info += files[0].name + " (" + files[0].type + ", " + files[0].size +
                     " bytes)";
                 selectimg.text(info);
-                output.innerHTML = "<img src=\"" + url + "\" width:>";
+                output.innerHTML = "<img src=\"" + url + "\">"; //本地能显示，上线后可能不显示
                 //构造对象，添加ajax所传输的数据
                 //点击生成服务气短的链接
                 geratelink.click(function() {
