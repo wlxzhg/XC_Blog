@@ -23,8 +23,8 @@
 	</div>
     <div class="editor-wrap">
         <!-- 编辑markdown文字 -->
-        ${blog.mdContent}
-        <pre id="editorMk"></pre>
+        <#--${blog.mdContent}-->
+        <pre id="editorMk">${savedBlog}</pre>
         <!-- 显示html -->
         <div id="showHtml"></div>
     </div>

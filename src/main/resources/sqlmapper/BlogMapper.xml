@@ -19,6 +19,16 @@
         <result property="beginImgHref" column="begin_img_href"/>
     </resultMap>
 
+    <resultMap id="blogSaveResultMap" type="cn.xiaozhigang.blog.domain.BlogSave">
+        <id property="id" column="id"/>
+        <result property="textMd" column="text_md"/>
+        <result property="categoryCode" column="category_cody"/>
+        <result property="createTime" javaType="java.sql.Timestamp"
+                column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="modifyTime" javaType="java.sql.Timestamp"
+                column="modify_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
     <select id="findBlogByBlogQuery" resultMap="blogResultMap">
         SELECT
             id,
@@ -66,4 +76,56 @@
         UPDATE b_blog SET like_num = like_num - 1 WHERE id = #{id} AND like_num > 0
     </update>
 
+    <select id="findBlogSaveByUid" parameterType="int" resultMap="blogSaveResultMap">
+        SELECT id,uid,text_md,category_code,create_time,modify_time FROM b_blog_save WHERE uid = #{uid} LIMIT 1
+    </select>
+
+    <insert id="addBlogSave" parameterType="cn.xiaozhigang.blog.domain.BlogSave">
+        INSERT INTO b_blog_save
+        <trim prefix="(" suffix=")" prefixOverrides="," suffixOverrides=",">
+            <if test="userId != null">
+                uid,
+            </if>
+            <if test="textMd != null">
+                text_md,
+            </if>
+            <if test="categoryCode !=null">
+                category_code,
+            </if>
+            <if test="createTime !=null">
+                create_time,
+            </if>
+            <if test="modifyTime != null">
+                modify_time
+            </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" prefixOverrides="," suffixOverrides=",">
+            <if test="userId != null">
+                #{userId},
+            </if>
+            <if test="textMd != null">
+                #{textMd},
+            </if>
+            <if test="categoryCode !=null">
+                #{categoryCode},
+            </if>
+            <if test="createTime !=null">
+                #{createTime},
+            </if>
+            <if test="modifyTime != null">
+                #{modifyTime}
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateBlogSave" parameterType="cn.xiaozhigang.blog.domain.BlogSave">
+        UPDATE b_blog_save
+        <set>
+            <if test="textMd != null">text_md = #{textMd},</if>
+            <if test="categoryCode != null">category_code = #{categoryCode},</if>
+            <if test="modifyTime != null">modify_time = #{modifyTime}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
 </mapper>

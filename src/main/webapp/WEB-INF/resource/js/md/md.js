@@ -79,7 +79,7 @@ $(function() {
     save.click(function() {
         $.ajax({
             type: 'post',
-            url: '/mdSave',
+            url: '/writer/save',
             data: {
                 value: mdData, //用户写的内容
                 name: 'uesr' //传递用户名

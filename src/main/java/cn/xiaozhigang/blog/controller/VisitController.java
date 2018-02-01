@@ -4,6 +4,7 @@ import cn.xiaozhigang.blog.constant.BlogCategoryEnum;
 import cn.xiaozhigang.blog.constant.Constant;
 import cn.xiaozhigang.blog.domain.Blog;
 import cn.xiaozhigang.blog.domain.BlogLike;
+import cn.xiaozhigang.blog.domain.BlogSave;
 import cn.xiaozhigang.blog.domain.User;
 import cn.xiaozhigang.blog.dto.BlogQuery;
 import cn.xiaozhigang.blog.service.BlogLikeService;
@@ -123,10 +124,10 @@ public class VisitController {
     public String sign() {
         return "sign";
     }
-      @RequestMapping("/md")
-    public String md() {
-        return "md";
-    }
+    //   @RequestMapping("/md")
+    // public String md() {
+    //     return "md";
+    // }
 
     /**
      * 处理注册请求
@@ -267,14 +268,55 @@ public class VisitController {
     }
 
     @RequestMapping("writer")
-    public String writer() {
+    public String writer(HttpSession session,Model model) {
+        User user = checkUserLogin(session);
+        if(user == null)
+            return "redirect:/login";
+        BlogSave blogSave = blogService.findBlogSaveByUid(user.getId());
+        if(blogSave != null)
+            model.addAttribute("savedBlog",blogSave.getTextMd());
         return "md";
     }
 
     @RequestMapping("writer/save")
     @ResponseBody
-    public Object writerSave(HttpSession session) {
+    public Object writerSave(HttpSession session, String value) {
+        LOG.info("保存的文章：" + value);
 
+        HashMap<String, String> map = new HashMap<String, String>();
+
+        User user = checkUserLogin(session);
+        if(user == null) {
+            map.put("info","not login");
+        } else if(value == null){
+            map.put("info","value is null");
+        } else {
+            BlogSave blogSave = blogService.findBlogSaveByUid(user.getId());
+            if(blogSave == null) {
+                blogSave = new BlogSave();
+                blogSave.setTextMd(value);
+                blogSave.setUserId(user.getId());
+                blogSave.setCreateTime(new Timestamp(System.currentTimeMillis()));
+                blogSave.setModifyTime(new Timestamp(System.currentTimeMillis()));
+            } else {
+                blogSave.setTextMd(value);
+                blogSave.setModifyTime(new Timestamp(System.currentTimeMillis()));
+                blogSave.setCreateTime(null);
+            }
+
+            if(blogService.addOrUpdateBlogSave(blogSave)){
+              map.put("info","success");
+            } else {
+                map.put("info","fail");
+            }
+        }
+
+        return map;
+    }
+
+    @RequestMapping("writer/publish")
+    @ResponseBody
+    public Object writerPublish(){
         return null;
     }
 }
