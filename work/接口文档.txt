@@ -55,3 +55,51 @@
 	2.用户未登录：{info:"not login"}
 	3.重复点赞或取消：{info:"不能重复点赞或取消点赞喔！"}
 	4.文章（更具id查询）不存在:{info:article is not exist}
+	
+6.writer/save
+作用：文章保存
+请求方法：POST
+参数：value:保存文章的MARKDOWN内容
+返回JSON:
+	1.保存成功{"info","success"} //如果已保存过文章则覆盖
+	2.{"info","用户未登录"}
+	3.{"info","数据为空"}
+	4.{"info","数据库错误"}
+	
+7.writer/publish
+作用：发布文章
+方法：POST
+参数：title 标题；brief 简介；text 正文（html）;category 类别；
+返回JSON：
+	1.("info","success")
+	2.("info","用户未登录")
+	3.("info", "发送的数据为空")
+	4.("info","数据库异常或用户信息异常")
+	
+8.my-article/get
+作用：获取自己的（登录的用户）所有文章
+方法：GET 可浏览器直接访问localhost:8000/my-article/get
+参数：无
+返回JSON:
+	1.("info", "用户未登录")
+	2.
+	{
+		size:2,
+		blogs:[
+			{
+				id: 6,
+				userId: 1,
+				title: "<h1 id="-">番茄工作法总结</h1>",
+				brief: " 番茄工作法总结 哈哈哈哈",
+				text: null,
+				categoryCode: 0,
+				createTime: "2018-02-01 12:19:22",
+				modifyTime: "2018-02-01 12:19:22",
+				likeNum: 0,
+				browseNum: 0,
+				commentNum: 0,
+				beginImgHref: null,
+				category: null
+			}
+		]
+	}

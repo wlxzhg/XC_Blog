@@ -7,7 +7,12 @@ import cn.xiaozhigang.blog.dto.BlogQuery;
 import java.util.List;
 
 public interface BlogService {
-    List<Blog> findBlogByBlogQuery(BlogQuery blogQuery);
+    //Blog
+    List<Blog> findBlogWithoutTextByBlogQuery(BlogQuery blogQuery);
+
+    List<Blog> findBlogWithoutTextByUid(Integer uid);
+
+    List<Blog> findBlogWithoutTextByUid(Integer uid,Integer amount);
 
     Blog findById(Integer id);
 
@@ -15,6 +20,13 @@ public interface BlogService {
 
     void unlike(Integer id);
 
+    boolean addBlog(Blog blog);
+
+    boolean updateBlog(Blog blog);
+
+    boolean addOrUpdateBlog(Blog blog);
+
+    //BlogSave
     BlogSave findBlogSaveByUid(Integer uid);
 
     boolean addOrUpdateBlogSave(BlogSave blogSave);

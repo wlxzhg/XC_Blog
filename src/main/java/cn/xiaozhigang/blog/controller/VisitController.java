@@ -13,7 +13,6 @@ import cn.xiaozhigang.blog.service.UserService;
 import cn.xiaozhigang.blog.util.IpAddressUtil;
 import cn.xiaozhigang.blog.util.Md5Utils;
 import com.alibaba.fastjson.JSON;
-import org.apache.ibatis.ognl.OgnlContext;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,9 +55,9 @@ public class VisitController {
         String ip = IpAddressUtil.getIpFromRequest(request);
         LOG.info(String.format("访问首页，IP：%s",ip));
 
-        BlogQuery blogQuery = new BlogQuery("font_end",1,5);
+        BlogQuery blogQuery = new BlogQuery("front_end",1,5);
 
-        ArrayList<Blog> blogs = (ArrayList<Blog>) blogService.findBlogByBlogQuery(blogQuery);
+        ArrayList<Blog> blogs = (ArrayList<Blog>) blogService.findBlogWithoutTextByBlogQuery(blogQuery);
         model.addAttribute("blogs",blogs);
 
         User user = checkUserLogin(session);
@@ -189,7 +188,7 @@ public class VisitController {
             map.put("info", "参数错误");
         } else {
             BlogQuery blogQuery = new BlogQuery(category, pageNum, numPerPage);
-            ArrayList<Blog> blogs = (ArrayList<Blog>) blogService.findBlogByBlogQuery(blogQuery);
+            ArrayList<Blog> blogs = (ArrayList<Blog>) blogService.findBlogWithoutTextByBlogQuery(blogQuery);
 
             if(blogs != null && blogs.size() > 0) {
                 map.put("info","success");
@@ -278,7 +277,7 @@ public class VisitController {
         return "md";
     }
 
-    @RequestMapping("writer/save")
+    @RequestMapping(value = "writer/save",method =RequestMethod.POST)
     @ResponseBody
     public Object writerSave(HttpSession session, String value) {
         LOG.info("保存的文章：" + value);
@@ -287,9 +286,9 @@ public class VisitController {
 
         User user = checkUserLogin(session);
         if(user == null) {
-            map.put("info","not login");
+            map.put("info","用户未登录");
         } else if(value == null){
-            map.put("info","value is null");
+            map.put("info","数据为空");
         } else {
             BlogSave blogSave = blogService.findBlogSaveByUid(user.getId());
             if(blogSave == null) {
@@ -307,16 +306,58 @@ public class VisitController {
             if(blogService.addOrUpdateBlogSave(blogSave)){
               map.put("info","success");
             } else {
-                map.put("info","fail");
+                map.put("info","数据库错误");
             }
         }
 
         return map;
     }
 
-    @RequestMapping("writer/publish")
+    @RequestMapping(value="writer/publish",method=RequestMethod.POST)
     @ResponseBody
-    public Object writerPublish(){
-        return null;
+    public Object writerPublish(Blog newBlog,HttpSession session) {
+        LOG.info("发布新文章：" + newBlog);
+        System.out.println(newBlog);
+        HashMap<String, String> map = new HashMap<String, String>();
+
+        User user = checkUserLogin(session);
+        if(user == null) {
+            map.put("info","用户未登录");
+        } else if(newBlog == null) {
+            map.put("info", "发送的数据为空");
+        } else {
+            newBlog.setUserId(user.getId());
+            newBlog.setCreateTime(new Timestamp(System.currentTimeMillis()));
+            newBlog.setModifyTime(new Timestamp(System.currentTimeMillis()));
+            if(blogService.addBlog(newBlog)) {
+                map.put("info","success");
+            } else
+                map.put("info","数据库异常或用户信息异常");
+        }
+
+        return map;
+    }
+
+    @RequestMapping(value = "my-article")
+    public String myArticle(HttpSession session) {
+        if(checkUserLogin(session) == null)
+            return "redirect:/login";
+        return "my_article";
+    }
+
+    @RequestMapping(value = "my-article/get",method=RequestMethod.GET)
+    @ResponseBody
+    public Object myArticleGet(HttpSession session) {
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        User user = checkUserLogin(session);
+        if(user == null) {
+            map.put("info", "用户未登录");
+        } else {
+            List<Blog> blogs = blogService.findBlogWithoutTextByUid(user.getId());
+            map.put("info","success");
+            map.put("blogs",blogs);
+            map.put("size",blogs.size());
+        }
+        return map;
     }
 }

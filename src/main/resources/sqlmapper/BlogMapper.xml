@@ -29,12 +29,12 @@
                 column="modify_time" jdbcType="TIMESTAMP"/>
     </resultMap>
 
-    <select id="findBlogByBlogQuery" resultMap="blogResultMap">
+    <select id="findBlogWithoutTextByBlogQuery" resultMap="blogResultMap">
         SELECT
             id,
+            uid,
             title,
             brief,
-            text,
             category_code,
             create_time,
             modify_time,
@@ -47,6 +47,29 @@
         WHERE
             category_code = #{categoryCode}
         ORDER BY id ASC LIMIT   #{start},#{end}
+    </select>
+
+    <select id="findBlogWithoutTextByUid" parameterType="map" resultMap="blogResultMap">
+        SELECT
+            id,
+            uid,
+            title,
+            brief,
+            category_code,
+            create_time,
+            modify_time,
+            like_num,
+            browse_num,
+            comment_num,
+            begin_img_href
+        FROM
+            b_blog
+        WHERE
+            uid = #{uid}
+        ORDER BY  modify_time DESC
+        <if test="amount != null">
+            LIMIT  #{amount}
+        </if>
     </select>
 
     <select id = "findById" resultMap = "blogResultMap">
@@ -128,4 +151,55 @@
         </set>
         WHERE id = #{id}
     </update>
+
+    <insert id="addBlog" parameterType="cn.xiaozhigang.blog.domain.Blog">
+        INSERT INTO b_blog
+        <trim suffixOverrides="," prefixOverrides="," prefix="(" suffix=")">
+            <if test="userId != null">
+                uid,
+            </if>
+            <if test="title != null">
+                title,
+            </if>
+            <if test="brief != null">
+                brief,
+            </if>
+            <if test="text != null">
+                text,
+            </if>
+            <if test="categoryCode != null">
+                category_code,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="modifyTime != null">
+                modify_time
+            </if>
+        </trim>
+        VALUES
+        <trim suffixOverrides="," prefixOverrides="," prefix="(" suffix=")">
+            <if test="userId != null">
+                #{userId},
+            </if>
+            <if test="title != null">
+                #{title},
+            </if>
+            <if test="brief != null">
+                #{brief},
+            </if>
+            <if test="text != null">
+                #{text},
+            </if>
+            <if test="categoryCode != null">
+                #{categoryCode},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="modifyTime != null">
+                #{modifyTime}
+            </if>
+        </trim>
+    </insert>
 </mapper>

@@ -7,6 +7,8 @@ import java.sql.Timestamp;
 public class Blog {
     private Integer id;
 
+    private Integer userId;
+
     private String title;
 
     private String brief;
@@ -29,10 +31,14 @@ public class Blog {
 
     private String beginImgHref;
 
+    //数据库中没有的字段
+    private String category;
+
     @Override
     public String toString() {
         return "Blog{" +
                 "id=" + id +
+                ", userId=" + userId +
                 ", title='" + title + '\'' +
                 ", brief='" + brief + '\'' +
                 ", text='" + text + '\'' +
@@ -43,6 +49,7 @@ public class Blog {
                 ", browseNum=" + browseNum +
                 ", commentNum=" + commentNum +
                 ", beginImgHref='" + beginImgHref + '\'' +
+                ", category='" + category + '\'' +
                 '}';
     }
 
@@ -52,6 +59,14 @@ public class Blog {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getTitle() {
@@ -132,5 +147,13 @@ public class Blog {
 
     public void setBeginImgHref(String beginImgHref) {
         this.beginImgHref = beginImgHref;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
