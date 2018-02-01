@@ -16,7 +16,7 @@ $(function() {
         htmlData = '',
         mdData = '',
         // titleReg = /<h.*>.*<\/h\d{1}>/, //匹配第一个标题<h 数字 ...>...</h数字>
-        titleReg = /<.*>.*<\/.>/, //匹配第一行的第一个标签，编辑这编辑的标题不一定是h标签
+        titleReg = /<.*>.*<\/.*>/, //匹配第一行的第一个标签，编辑这编辑的标题不一定是h标签
         zhReg = />([\s\S]*)</img, //匹配标记符中的字符，包括汉字字母数字标点符号等
         // contentReg = /[\w,:\?\.]+/mg; //匹配标记符中的字符，包括汉字字母数字标点符号等
         contentReg = /[^\n`#\*<>-]/mg; //不匹配换行符，#`*<-等markdown标记
@@ -92,17 +92,17 @@ $(function() {
     publish.click(function() {
 
         let title = titleReg.exec(htmlData)[0],
-            shortIntr = '';
-        shortIntr = mdData.match(contentReg).join('').substring(0, 120);
-
+            brief = '';
+        brief = mdData.match(contentReg).join('').substring(0, 120);
+        // console.log(title)
         $.ajax({
             type: 'post',
             url: '/mdPublish',
             data: {
-                value: htmlData, //html的内容
+                text: htmlData, //html的内容
                 name: 'uesr', //传递用户名
                 title: title, //首页显示用户标题
-                shortIntr: shortIntr
+                brief: brief
             },
             dataType: 'json',
             success: function() {
@@ -175,7 +175,7 @@ $(function() {
                 info += files[0].name + " (" + files[0].type + ", " + files[0].size +
                     " bytes)";
                 selectimg.text(info);
-                output.innerHTML = "<img src=\"" + url + "\" width:>";
+                output.innerHTML = "<img src=\"" + url + "\">"; //本地能显示，上线后可能不显示
                 //构造对象，添加ajax所传输的数据
                 //点击生成服务气短的链接
                 geratelink.click(function() {
